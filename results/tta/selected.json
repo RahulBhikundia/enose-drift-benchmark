@@ -1,0 +1,35 @@
+{
+  "hp": {
+    "smell": {
+      "ent_affine": {
+        "lr": 0.001,
+        "steps": 200
+      },
+      "shot_im": {
+        "lr": 0.001,
+        "steps": 50
+      }
+    },
+    "twin": {
+      "ent_affine": {
+        "lr": 0.001,
+        "steps": 50
+      },
+      "shot_im": {
+        "lr": 0.0001,
+        "steps": 50
+      }
+    },
+    "twinreg": {},
+    "uci": {
+      "ent_affine": {
+        "lr": 0.001,
+        "steps": 50
+      },
+      "shot_im": {
+        "lr": 0.0001,
+        "steps": 50
+      }
+    }
+  }
+}

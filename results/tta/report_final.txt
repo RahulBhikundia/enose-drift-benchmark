@@ -1,0 +1,57 @@
+D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\run_tta.py:328: FutureWarning: Downcasting object dtype arrays on .fillna, .ffill, .bfill is deprecated and will change in a future version. Call result.infer_objects(copy=False) instead. To opt-in to the future behavior, set `pd.set_option('future.no_silent_downcasting', True)`
+  C["by_im"] = np.where(C.crit_im.fillna(False).astype(bool), C.standardize, C.none)
+D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\run_tta.py:348: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = x.groupby("dataset").apply(lambda g: (g[c].astype(bool) == g.std_helps).mean())
+D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\run_tta.py:348: DeprecationWarning: DataFrameGroupBy.apply operated on the grouping columns. This behavior is deprecated, and in a future version of pandas the grouping columns will be excluded from the operation. Either pass `include_groups=False` to exclude the groupings or explicitly select the grouping columns after groupby to silence this warning.
+  acc = x.groupby("dataset").apply(lambda g: (g[c].astype(bool) == g.std_helps).mean())
+[final] mean over splits of per-domain scores (seed-mean); by_* = apply standardize iff criterion says so
+          none  standardize  feat_align  ent_affine  shot_im  fewshot  by_agree  by_im  oracle
+dataset                                                                                       
+smell    0.851        0.822       0.854       0.892    0.918    0.943     0.851  0.851   0.851
+twin     0.910        0.966       0.982       0.971    0.978    0.962     0.976  0.976   0.976
+twinreg  0.604        0.695       0.712         NaN      NaN    0.552     0.692  0.604   0.731
+uci      0.763        0.687       0.749       0.779    0.784    0.929     0.717  0.698   0.764
+
+splits where method beats none:
+         none  standardize  feat_align  ent_affine  shot_im  fewshot  by_agree  by_im  oracle
+dataset                                                                                      
+smell       0            0           4           6        6        6         0      0       0
+twin        0            3           3           3        3        2         3      3       3
+twinreg     0            3           4           0        0        2         2      0       3
+uci         0            0           2           4        5        8         0      0       1
+
+criterion decision accuracy vs 'does standardize actually help' (per target domain):
+  crit_agree: overall 0.62  smell 1.00 (n=6)  twin 1.00 (n=5)  twinreg 0.40 (n=5)  uci 0.38 (n=13)
+  crit_im: overall 0.62  smell 1.00 (n=6)  twin 1.00 (n=5)  uci 0.31 (n=13)
+
+per domain:
+dataset split  domain  n_seeds  none  standardize  feat_align  ent_affine  shot_im  fewshot  agree_none  agree_std  crit_agree   d_im crit_im  oracle  by_agree  by_im  std_helps
+  smell loso1       1        5 0.720        0.709       0.726       0.791    0.813    0.835       0.769      0.766       False  0.005   False   0.720     0.720  0.720      False
+  smell loso2       2        5 0.919        0.858       0.905       0.947    0.994    0.959       0.872      0.856       False  0.012   False   0.919     0.919  0.919      False
+  smell loso3       3        5 0.939        0.918       0.939       0.961    0.976    0.982       0.913      0.890       False  0.019   False   0.939     0.939  0.939      False
+  smell loso4       4        5 0.932        0.929       0.945       0.969    0.991    0.991       0.930      0.928       False  0.020   False   0.932     0.932  0.932      False
+  smell loso5       5        5 0.792        0.743       0.795       0.837    0.862    0.938       0.846      0.821       False  0.033   False   0.792     0.792  0.792      False
+  smell loso6       6        5 0.806        0.777       0.817       0.848    0.872    0.951       0.818      0.801       False  0.058   False   0.806     0.806  0.806      False
+   twin louo1       1        5 0.800        0.933       0.988       0.981    0.981    0.954       0.957      0.959        True -0.195    True   0.933     0.933  0.933       True
+   twin louo2       2        5 0.995        0.966       0.995       0.995    0.995    0.958       1.000      0.976       False  0.008   False   0.995     0.995  0.995      False
+   twin louo3       3        5 0.992        0.969       0.992       0.993    0.993    0.991       0.995      0.973       False  0.011   False   0.992     0.992  0.992      False
+   twin louo4       4        5 0.830        0.989       0.989       0.959    0.989    0.997       0.928      1.000        True -0.252    True   0.989     0.989  0.989       True
+   twin louo5       5        5 0.933        0.972       0.947       0.925    0.931    0.913       0.958      0.992        True -0.001    True   0.972     0.972  0.972       True
+twinreg louo1       1        5 0.712        0.614       0.736         NaN      NaN    0.660       0.943      0.967        True    NaN     NaN   0.712     0.614  0.712      False
+twinreg louo2       2        5 0.709        0.721       0.790         NaN      NaN    0.802       0.966      0.964       False    NaN     NaN   0.721     0.709  0.709       True
+twinreg louo3       3        5 0.782        0.698       0.769         NaN      NaN    0.772       0.964      0.964        True    NaN     NaN   0.782     0.698  0.782      False
+twinreg louo4       4        5 0.507        0.777       0.730         NaN      NaN    0.668       0.975      0.977        True    NaN     NaN   0.777     0.777  0.507       True
+twinreg louo5       5        5 0.310        0.663       0.537         NaN      NaN   -0.142       0.714      0.935        True    NaN     NaN   0.663     0.663  0.310       True
+    uci  main       6        5 0.671        0.591       0.635       0.652    0.651    0.893       0.853      0.919        True -0.077    True   0.671     0.591  0.591      False
+    uci  main       7        5 0.605        0.625       0.623       0.706    0.715    0.951       0.767      0.881        True -0.288    True   0.625     0.625  0.625       True
+    uci  main       8        5 0.511        0.535       0.436       0.523    0.578    0.915       0.685      0.827        True -0.391    True   0.535     0.535  0.535       True
+    uci  main       9        5 0.549        0.542       0.578       0.644    0.688    0.982       0.634      0.875        True -0.463    True   0.549     0.542  0.542      False
+    uci  main      10        5 0.479        0.412       0.468       0.531    0.555    0.773       0.770      0.824        True -0.227    True   0.479     0.412  0.412      False
+    uci roll2       3        5 0.762        0.755       0.772       0.810    0.829    0.956       0.944      0.916       False -0.017    True   0.762     0.762  0.755      False
+    uci roll3       4        5 0.843        0.684       0.776       0.825    0.830    0.981       0.885      0.926        True -0.000    True   0.843     0.684  0.684      False
+    uci roll4       5        5 0.992        0.988       0.989       0.992    0.992    0.973       0.995      0.998        True  0.005   False   0.992     0.988  0.992      False
+    uci roll5       6        5 0.671        0.591       0.635       0.652    0.651    0.893       0.853      0.919        True -0.077    True   0.671     0.591  0.591      False
+    uci roll6       7        5 0.777        0.726       0.771       0.844    0.837    0.960       0.814      0.842        True -0.121    True   0.777     0.726  0.726      False
+    uci roll7       8        5 0.876        0.619       0.838       0.850    0.851    0.900       0.885      0.813       False -0.096    True   0.876     0.876  0.619      False
+    uci roll8       9        5 0.687        0.682       0.724       0.737    0.728    0.982       0.911      0.863       False -0.082    True   0.687     0.687  0.682      False
+    uci roll9      10        5 0.693        0.601       0.683       0.688    0.703    0.812       0.870      0.876        True  0.116   False   0.693     0.601  0.693      False
