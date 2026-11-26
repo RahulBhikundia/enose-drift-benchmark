@@ -1,0 +1,90 @@
+
+== smell: each method minus adamw (test macro-F1, per-split means; 6 splits)
+         method  mean_diff  ci_lo  ci_hi  wins  n_splits  p_wilcoxon  p_holm
+             rf      0.064  0.032  0.094     6         6       0.031   0.594
+          coral      0.043  0.032  0.056     6         6       0.031   0.594
+       swa_full      0.031  0.024  0.039     6         6       0.031   0.594
+  samsam_random      0.025  0.013  0.036     6         6       0.031   0.594
+samsam_disagree      0.016  0.009  0.025     6         6       0.031   0.594
+            sgd      0.014  0.006  0.022     5         6       0.062   0.688
+            sam      0.012  0.001  0.022     4         6       0.156   1.000
+           sagm      0.010  0.000  0.019     5         6       0.156   1.000
+          disam      0.010 -0.001  0.020     4         6       0.312   1.000
+      erm_mixed      0.008  0.000  0.018     3         6       0.438   1.000
+       groupdro      0.004 -0.014  0.017     5         6       0.438   1.000
+             gi     -0.003 -0.038  0.022     4         6       0.688   1.000
+        domnorm     -0.004 -0.029  0.019     3         6       1.000   1.000
+            swa     -0.013 -0.023 -0.003     1         6       0.062   0.688
+  samsam_extrap     -0.022 -0.044  0.003     1         6       0.219   1.000
+       driftaug     -0.030 -0.049 -0.012     0         6       0.031   0.594
+        recency     -0.048 -0.104  0.002     2         6       0.219   1.000
+          ccpca     -0.065 -0.089 -0.042     0         6       0.031   0.594
+           msam     -0.106 -0.201 -0.039     0         6       0.031   0.594
+Friedman over 20 methods: chi2=75.5, p=1.11e-08
+average rank (1 = best): coral 2.2, rf 2.3, swa_full 3.5, samsam_random 5.3, samsam_disagree 7.7, sgd 8.5, disam 9.5, groupdro 9.8, sam 9.8, gi 10.0, sagm 10.2, erm_mixed 10.8, domnorm 11.5, adamw 12.2, swa 14.0, recency 14.2, samsam_extrap 15.2, driftaug 16.2, msam 18.5, ccpca 18.7
+
+== twin: each method minus adamw (test macro-F1, per-split means; 5 splits)
+         method  mean_diff  ci_lo  ci_hi  wins  n_splits  p_wilcoxon  p_holm
+        domnorm      0.064 -0.006  0.134     3         5       0.625     1.0
+             rf      0.047 -0.056  0.140     4         5       0.312     1.0
+       driftaug      0.034 -0.027  0.101     3         5       0.625     1.0
+           sagm      0.033 -0.008  0.078     3         5       0.625     1.0
+          coral      0.028 -0.017  0.084     3         5       0.438     1.0
+            sam      0.019 -0.013  0.057     3         5       0.625     1.0
+            swa      0.011 -0.003  0.029     3         5       0.625     1.0
+          disam      0.008 -0.035  0.055     3         5       0.812     1.0
+       groupdro      0.007 -0.012  0.027     3         5       0.625     1.0
+      erm_mixed      0.005 -0.011  0.021     4         5       0.438     1.0
+       swa_full      0.004 -0.005  0.017     2         5       0.812     1.0
+          ccpca     -0.009 -0.032  0.016     2         5       0.625     1.0
+            sgd     -0.167 -0.282 -0.056     1         5       0.125     1.0
+  samsam_random     -0.236 -0.359 -0.112     0         5       0.062     1.0
+samsam_disagree     -0.254 -0.406 -0.129     0         5       0.062     1.0
+           msam     -0.259 -0.347 -0.181     0         5       0.062     1.0
+Friedman over 17 methods: chi2=47.6, p=5.44e-05
+average rank (1 = best): rf 3.7, sagm 5.0, domnorm 5.3, coral 6.0, driftaug 7.0, sam 7.2, erm_mixed 7.3, swa 7.4, disam 8.2, swa_full 8.2, adamw 8.4, groupdro 8.6, ccpca 9.7, sgd 13.4, samsam_random 15.6, samsam_disagree 15.8, msam 16.2
+
+== twinreg: each method minus adamw (test R2, per-split means; 5 splits)
+         method  mean_diff  ci_lo  ci_hi  wins  n_splits  p_wilcoxon  p_holm
+        domnorm      0.224  0.050  0.407     4         5       0.125     1.0
+             rf      0.126 -0.014  0.269     3         5       0.438     1.0
+          coral      0.031  0.009  0.058     5         5       0.062     1.0
+          disam      0.009 -0.032  0.064     2         5       1.000     1.0
+      erm_mixed      0.001 -0.052  0.050     3         5       0.812     1.0
+            swa     -0.001 -0.006  0.002     2         5       1.000     1.0
+       groupdro     -0.003 -0.042  0.037     2         5       1.000     1.0
+       driftaug     -0.008 -0.073  0.045     3         5       1.000     1.0
+           msam     -0.048 -0.164  0.061     2         5       1.000     1.0
+  samsam_random     -0.063 -0.185  0.059     2         5       0.625     1.0
+           sagm     -0.081 -0.210  0.033     2         5       0.438     1.0
+          ccpca     -0.081 -0.202 -0.011     1         5       0.125     1.0
+samsam_disagree     -0.124 -0.243  0.003     2         5       0.312     1.0
+       swa_full     -0.161 -0.540  0.059     3         5       1.000     1.0
+            sgd     -0.187 -0.300 -0.056     1         5       0.125     1.0
+            sam     -0.307 -0.454 -0.178     0         5       0.062     1.0
+Friedman over 17 methods: chi2=33.8, p=0.00577
+average rank (1 = best): domnorm 2.2, coral 5.4, rf 5.6, erm_mixed 6.8, swa_full 7.8, driftaug 8.0, swa 8.4, adamw 8.4, disam 8.4, groupdro 9.2, msam 9.8, samsam_random 9.8, sagm 10.2, ccpca 11.0, samsam_disagree 11.6, sgd 14.0, sam 16.4
+
+== uci: each method minus adamw (test macro-F1, per-split means; 9 splits)
+         method  mean_diff  ci_lo  ci_hi  wins  n_splits  p_wilcoxon  p_holm
+          ccpca      0.049 -0.009  0.111     7         9       0.098   1.000
+           msam      0.017 -0.003  0.038     5         9       0.250   1.000
+        domnorm      0.008 -0.066  0.085     5         9       0.820   1.000
+           sagm      0.002 -0.022  0.025     5         9       0.820   1.000
+            swa      0.000  0.000  0.000     0         9       1.000   1.000
+          coral     -0.001 -0.021  0.019     5         9       1.000   1.000
+       swa_full     -0.001 -0.025  0.024     4         9       1.000   1.000
+       groupdro     -0.004 -0.030  0.023     4         9       0.820   1.000
+       driftaug     -0.004 -0.031  0.027     2         9       0.496   1.000
+            sgd     -0.005 -0.020  0.016     3         9       0.301   1.000
+            sam     -0.005 -0.022  0.013     5         9       0.734   1.000
+  samsam_random     -0.005 -0.024  0.015     4         9       0.820   1.000
+      erm_mixed     -0.009 -0.029  0.013     3         9       0.301   1.000
+             gi     -0.010 -0.049  0.022     5         9       1.000   1.000
+        recency     -0.011 -0.030  0.009     2         9       0.250   1.000
+  samsam_extrap     -0.015 -0.039  0.005     3         9       0.301   1.000
+samsam_disagree     -0.028 -0.075  0.006     4         9       0.359   1.000
+             rf     -0.035 -0.098  0.039     2         9       0.570   1.000
+          disam     -0.075 -0.146 -0.020     2         9       0.039   0.742
+Friedman over 20 methods: chi2=31.4, p=0.0369
+average rank (1 = best): ccpca 5.8, msam 6.4, sagm 8.0, sam 8.6, domnorm 9.0, adamw 9.3, swa 9.3, gi 9.4, coral 9.8, groupdro 10.7, swa_full 10.9, samsam_disagree 11.1, samsam_extrap 11.2, sgd 11.4, driftaug 11.7, erm_mixed 11.8, samsam_random 11.9, recency 12.2, rf 15.2, disam 16.3

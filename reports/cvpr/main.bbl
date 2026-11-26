@@ -1,0 +1,133 @@
+\begin{thebibliography}{19}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Becker et~al.(2024)Becker, Altrock, and Risse]{becker2024msam}
+Marlon Becker, Frederick Altrock, and Benjamin Risse.
+\newblock Momentum-{SAM}: Sharpness aware minimization without computational
+  overhead.
+\newblock \emph{arXiv preprint arXiv:2401.12033}, 2024.
+
+\bibitem[Dennler et~al.(2022)Dennler, Rastogi, Fonollosa, van Schaik, and
+  Schmuker]{dennler2022drift}
+Nik Dennler, Shavika Rastogi, Jordi Fonollosa, Andr{\'e} van Schaik, and
+  Michael Schmuker.
+\newblock Drift in a popular metal oxide sensor dataset reveals limitations for
+  gas classification benchmarks.
+\newblock \emph{Sensors and Actuators B: Chemical}, 361:\penalty0 131668, 2022.
+
+\bibitem[Feng et~al.(2025)]{feng2025smellnet}
+Dewei Feng et~al.
+\newblock {SmellNet}: A large-scale dataset for real-world smell recognition.
+\newblock \emph{arXiv preprint arXiv:2506.00239}, 2025.
+
+\bibitem[Fonollosa et~al.(2016)Fonollosa, Fern{\'a}ndez,
+  Guti{\'e}rrez-G{\'a}lvez, Huerta, and Marco]{fonollosa2016twin}
+Jordi Fonollosa, Luis Fern{\'a}ndez, Agust{\'i}n Guti{\'e}rrez-G{\'a}lvez,
+  Ram{\'o}n Huerta, and Santiago Marco.
+\newblock Calibration transfer and drift counteraction in chemical sensor
+  arrays using direct standardization.
+\newblock \emph{Sensors and Actuators B: Chemical}, 236:\penalty0 1044--1053,
+  2016.
+
+\bibitem[Foret et~al.(2021)Foret, Kleiner, Mobahi, and Neyshabur]{foret2021sam}
+Pierre Foret, Ariel Kleiner, Hossein Mobahi, and Behnam Neyshabur.
+\newblock Sharpness-aware minimization for efficiently improving
+  generalization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2021.
+
+\bibitem[Fu et~al.(2026)]{fu2026protocol}
+Fu et~al.
+\newblock Protocol-aware reproducibility case study of electronic-nose drift
+  compensation across chronological target periods.
+\newblock \emph{Microchemical Journal}, 2026.
+
+\bibitem[Gulrajani and Lopez-Paz(2021)]{gulrajani2021domainbed}
+Ishaan Gulrajani and David Lopez-Paz.
+\newblock In search of lost domain generalization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2021.
+
+\bibitem[Izmailov et~al.(2018)Izmailov, Podoprikhin, Garipov, Vetrov, and
+  Wilson]{izmailov2018swa}
+Pavel Izmailov, Dmitrii Podoprikhin, Timur Garipov, Dmitry Vetrov, and
+  Andrew~Gordon Wilson.
+\newblock Averaging weights leads to wider optima and better generalization.
+\newblock In \emph{Conference on Uncertainty in Artificial Intelligence (UAI)},
+  2018.
+
+\bibitem[Liang et~al.(2024)Liang, Chen, and Yang]{liang2024otta}
+Liang, Chen, and Yang.
+\newblock Online test-time adaptation for electronic nose drift compensation.
+\newblock In \emph{EEI}, 2024.
+
+\bibitem[Liang et~al.(2025)]{liang2025otta}
+Liang et~al.
+\newblock An online test-time adaptive drift compensation network for
+  electronic nose.
+\newblock \emph{IEEE Transactions on Instrumentation and Measurement}, 2025.
+
+\bibitem[Liang et~al.(2020)Liang, Hu, and Feng]{liang2020shot}
+Jian Liang, Dapeng Hu, and Jiashi Feng.
+\newblock Do we really need to access the source data? {S}ource hypothesis
+  transfer for unsupervised domain adaptation.
+\newblock In \emph{International Conference on Machine Learning (ICML)}, 2020.
+
+\bibitem[Loshchilov and Hutter(2019)]{loshchilov2019adamw}
+Ilya Loshchilov and Frank Hutter.
+\newblock Decoupled weight decay regularization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2019.
+
+\bibitem[Sagawa et~al.(2020)Sagawa, Koh, Hashimoto, and
+  Liang]{sagawa2020groupdro}
+Shiori Sagawa, Pang~Wei Koh, Tatsunori~B. Hashimoto, and Percy Liang.
+\newblock Distributionally robust neural networks for group shifts.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2020.
+
+\bibitem[Sun and Saenko(2016)]{sun2016coral}
+Baochen Sun and Kate Saenko.
+\newblock Deep {CORAL}: Correlation alignment for deep domain adaptation.
+\newblock In \emph{European Conference on Computer Vision (ECCV) Workshops},
+  2016.
+
+\bibitem[Vergara et~al.(2012)Vergara, Vembu, Ayhan, Ryan, Homer, and
+  Huerta]{vergara2012drift}
+Alexander Vergara, Shankar Vembu, Tuba Ayhan, Margaret~A. Ryan, Margie~L.
+  Homer, and Ram{\'o}n Huerta.
+\newblock Chemical gas sensor drift compensation using classifier ensembles.
+\newblock \emph{Sensors and Actuators B: Chemical}, 166:\penalty0 320--329,
+  2012.
+
+\bibitem[Wang et~al.(2021)Wang, Shelhamer, Liu, Olshausen, and
+  Darrell]{wang2021tent}
+Dequan Wang, Evan Shelhamer, Shaoteng Liu, Bruno Olshausen, and Trevor Darrell.
+\newblock Tent: Fully test-time adaptation by entropy minimization.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2021.
+
+\bibitem[Wang et~al.(2023)Wang, Zhang, Lei, and Zhang]{wang2023sagm}
+Pengfei Wang, Zhaoxiang Zhang, Zhen Lei, and Lei Zhang.
+\newblock Sharpness-aware gradient matching for domain generalization.
+\newblock In \emph{IEEE/CVF Conference on Computer Vision and Pattern
+  Recognition (CVPR)}, 2023.
+
+\bibitem[Zhang and Zhang(2015)]{zhang2015daelm}
+Lei Zhang and David Zhang.
+\newblock Domain adaptation extreme learning machines for drift compensation in
+  {E}-nose systems.
+\newblock \emph{IEEE Transactions on Instrumentation and Measurement},
+  64\penalty0 (7), 2015.
+
+\bibitem[Zhang et~al.(2024)]{zhang2024disam}
+Ruipeng Zhang et~al.
+\newblock Domain-inspired sharpness-aware minimization under domain shifts.
+\newblock In \emph{International Conference on Learning Representations
+  (ICLR)}, 2024.
+
+\end{thebibliography}

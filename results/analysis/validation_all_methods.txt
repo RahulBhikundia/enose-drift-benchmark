@@ -1,0 +1,38 @@
+== uci  (validation macro-F1, 3 seeds)
+  sgd              0.927 +- 0.017  gap_vs_msam -0.015  seeds [0.938 0.940 0.904]  hp {'lr': 0.03, 'weight_decay': 0.001} 
+  adamw            0.936 +- 0.003  gap_vs_msam -0.006  seeds [0.937 0.938 0.932]  hp {'lr': 0.003, 'weight_decay': 0.0} 
+  sam              0.935 +- 0.009  gap_vs_msam -0.007  seeds [0.942 0.942 0.923]  hp {'lr': 0.03, 'rho': 0.02} 
+  msam             0.942 +- 0.016  gap_vs_msam +0.000  seeds [0.959 0.921 0.947]  hp {'lr': 0.03, 'rho': 1.0} 
+  samsam_extrap    0.926 +- 0.018  gap_vs_msam -0.017  seeds [0.947 0.904 0.925]  hp {'beta': -0.5, 'lr': 0.03, 'rho': 1.0} 
+  samsam_disagree  0.935 +- 0.008  gap_vs_msam -0.007  seeds [0.945 0.933 0.926]  hp {'beta': 1.0, 'lr': 0.03, 'rho': 1.0} 
+  samsam_random    0.931 +- 0.009  gap_vs_msam -0.011  seeds [0.932 0.919 0.942]  hp {'beta': -0.5, 'lr': 0.03, 'rho': 1.0} 
+  recency          0.942 +- 0.008  gap_vs_msam -0.000  seeds [0.953 0.933 0.939]  hp {'lr': 0.003} {'gamma': 0.7}
+  gi               0.947 +- 0.003  gap_vs_msam +0.005  seeds [0.942 0.949 0.950]  hp {'lr': 0.003} {'delta': 1.0, 'lam': 0.5}
+  domnorm          0.940 +- 0.004  gap_vs_msam -0.002  seeds [0.938 0.936 0.945]  hp {'lr': 0.0003, 'weight_decay': 0.01} 
+  erm_mixed        0.936 +- 0.011  gap_vs_msam -0.006  seeds [0.950 0.936 0.923]  hp {'lr': 0.001, 'weight_decay': 0.01} 
+  sagm             0.928 +- 0.013  gap_vs_msam -0.014  seeds [0.944 0.912 0.927]  hp {'alpha': 0.001, 'lr': 0.03, 'rho': 0.02} 
+  disam            0.959 +- 0.005  gap_vs_msam +0.017  seeds [0.958 0.967 0.954]  hp {'lam': 0.1, 'lr': 0.1, 'rho': 0.2} 
+  coral            0.948 +- 0.008  gap_vs_msam +0.006  seeds [0.959 0.945 0.941]  hp {'lr': 0.003} {'lam': 1.0}
+  groupdro         0.964 +- 0.001  gap_vs_msam +0.021  seeds [0.965 0.962 0.964]  hp {'lr': 0.003} {'eta': 0.001}
+  ccpca            0.940 +- 0.006  gap_vs_msam -0.002  seeds [0.949 0.937 0.935]  hp {'lr': 0.001} {'k': 3}
+  driftaug         0.944 +- 0.013  gap_vs_msam +0.002  seeds [0.942 0.961 0.929]  hp {'lr': 0.003} {'gain': 0.2, 'offset': 0.3}
+  swa              0.923 +- 0.021  gap_vs_msam -0.019  seeds [0.937 0.938 0.894]  hp {'lr': 0.003} {'swa_start': 10}
+== smell  (validation macro-F1, 3 seeds)
+  sgd              0.810 +- 0.020  gap_vs_msam -0.007  seeds [0.796 0.796 0.838]  hp {'lr': 0.01, 'weight_decay': 0.0} 
+  adamw            0.816 +- 0.007  gap_vs_msam -0.002  seeds [0.806 0.820 0.821]  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  sam              0.816 +- 0.006  gap_vs_msam -0.001  seeds [0.811 0.811 0.825]  hp {'lr': 0.01, 'rho': 0.1} 
+  msam             0.817 +- 0.024  gap_vs_msam +0.000  seeds [0.847 0.816 0.788]  hp {'lr': 0.03, 'rho': 0.3} 
+  samsam_extrap    0.805 +- 0.007  gap_vs_msam -0.012  seeds [0.798 0.814 0.802]  hp {'beta': 0.5, 'lr': 0.03, 'rho': 0.3} 
+  samsam_disagree  0.801 +- 0.009  gap_vs_msam -0.016  seeds [0.788 0.805 0.809]  hp {'beta': -0.5, 'lr': 0.01, 'rho': 0.3} 
+  samsam_random    0.805 +- 0.004  gap_vs_msam -0.013  seeds [0.805 0.799 0.810]  hp {'beta': 1.0, 'lr': 0.01, 'rho': 0.3} 
+  recency          0.855 +- 0.003  gap_vs_msam +0.038  seeds [0.859 0.852 0.855]  hp {'lr': 0.003} {'gamma': 0.3}
+  gi               0.817 +- 0.035  gap_vs_msam -0.001  seeds [0.792 0.792 0.866]  hp {'lr': 0.003} {'delta': 1.0, 'lam': 0.5}
+  domnorm          0.812 +- 0.003  gap_vs_msam -0.006  seeds [0.814 0.814 0.807]  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  erm_mixed        0.811 +- 0.025  gap_vs_msam -0.007  seeds [0.777 0.818 0.837]  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  sagm             0.809 +- 0.017  gap_vs_msam -0.009  seeds [0.785 0.822 0.819]  hp {'alpha': 0.001, 'lr': 0.01, 'rho': 0.05} 
+  disam            0.804 +- 0.021  gap_vs_msam -0.013  seeds [0.780 0.831 0.803]  hp {'lam': 0.1, 'lr': 0.01, 'rho': 0.02} 
+  coral            0.847 +- 0.005  gap_vs_msam +0.029  seeds [0.843 0.854 0.843]  hp {'lr': 0.001} {'lam': 3.0}
+  groupdro         0.821 +- 0.015  gap_vs_msam +0.004  seeds [0.800 0.836 0.827]  hp {'lr': 0.003} {'eta': 0.1}
+  ccpca            0.858 +- 0.006  gap_vs_msam +0.041  seeds [0.858 0.851 0.866]  hp {'lr': 0.003} {'k': 2}
+  driftaug         0.797 +- 0.015  gap_vs_msam -0.020  seeds [0.816 0.797 0.779]  hp {'lr': 0.003} {'gain': 0.1, 'offset': 0.1}
+  swa              0.789 +- 0.017  gap_vs_msam -0.028  seeds [0.794 0.766 0.808]  hp {'lr': 0.003} {'swa_start': 50}
