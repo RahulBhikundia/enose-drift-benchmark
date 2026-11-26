@@ -1,0 +1,27 @@
+# environment
+.venv/
+__pycache__/
+*.pyc
+
+# datasets (public, about 3 GB; fetch with scripts/data/download_data.py)
+data/raw/
+data/processed/
+
+# third-party code, papers and course material (not ours to redistribute)
+external/
+papers/
+Momentum_SAM_Gas_Sensor_Research_Project_Description.pdf
+
+# local backups and scratch
+_backups/
+*.bak*
+
+# LaTeX build files
+reports/cvpr/*.aux
+reports/cvpr/*.log
+reports/cvpr/*.blg
+reports/cvpr/*.brf
+reports/cvpr/*.out
+reports/cvpr/*.synctex.gz
+reports/cvpr/main.pdf
+reports/project_report_2026-11-13.pdf
