@@ -204,6 +204,56 @@ class SAM:
         pass
 
 
+class SAGM(SAM):
+    """SAGM (Wang et al., CVPR 2023), following the official code (domainbed/sagm/sagm.py):
+    e = (rho/||g|| - alpha) * g ;  update gradient = 0.5*g(w) + 0.5*g(w+e).  Two passes per step.
+    Deviation (disclosed): base optimizer is SGD-momentum like our SAM, not the official Adam."""
+
+    def __init__(self, params, base_optimizer, rho=0.05, alpha=0.001):
+        super().__init__(params, base_optimizer, rho=rho)
+        self.alpha = alpha
+
+    def step(self, closure):
+        loss = closure()
+        with torch.no_grad():
+            ps = [p for p in self.params if p.grad is not None]
+            n = _global_norm([p.grad for p in ps])
+            old, es = [], []
+            for p in ps:
+                old.append(p.grad.clone())
+                e = p.grad * (self.rho / (n + 1e-12) - self.alpha)
+                p.add_(e); es.append(e)
+        closure()
+        with torch.no_grad():
+            for p, e, g in zip(ps, es, old):
+                p.sub_(e)
+                p.grad.mul_(0.5).add_(g, alpha=0.5)
+        self.base.step()
+        return loss
+
+
+class DISAM(SAM):
+    """DISAM (Zhang et al., ICLR 2024), following the official code (code/algorithms/DISAM.py):
+    the perturbation uses grad of [CE - lam * Var_d(L_d)] (domain losses within the batch), the descent
+    gradient is plain CE at w+e. closure(perturb: bool) must return the matching loss. Two passes."""
+
+    def step(self, closure):
+        closure(True)
+        with torch.no_grad():
+            ps = [p for p in self.params if p.grad is not None]
+            n = _global_norm([p.grad for p in ps])
+            es = []
+            for p in ps:
+                e = p.grad * (self.rho / (n + 1e-12))
+                p.add_(e); es.append(e)
+        loss = closure(False)
+        with torch.no_grad():
+            for p, e in zip(ps, es):
+                p.sub_(e)
+        self.base.step()
+        return loss
+
+
 def build_optimizer(name: str, params, hp: dict, n_domains: int = 1, domain_order=None, seed: int = 0):
     """Factory. name in: sgd, adamw, sam, msam, samsam_extrap, samsam_disagree, samsam_random."""
     params = list(params)
@@ -215,6 +265,11 @@ def build_optimizer(name: str, params, hp: dict, n_domains: int = 1, domain_orde
     if name == "sam":
         base = torch.optim.SGD(params, lr=lr, momentum=hp.get("momentum", 0.9), weight_decay=wd)
         return SAM(params, base, rho=hp["rho"])
+    if name in ("sagm", "disam"):
+        base = torch.optim.SGD(params, lr=lr, momentum=hp.get("momentum", 0.9), weight_decay=wd)
+        if name == "sagm":
+            return SAGM(params, base, rho=hp["rho"], alpha=hp.get("alpha", 0.001))
+        return DISAM(params, base, rho=hp["rho"])
     if name == "msam":
         return MSAM(params, lr=lr, momentum=hp.get("momentum", 0.9), weight_decay=wd, rho=hp["rho"])
     if name.startswith("samsam_"):

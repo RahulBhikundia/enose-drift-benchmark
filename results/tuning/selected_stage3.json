@@ -1,0 +1,194 @@
+{
+  "uci": {
+    "domnorm": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.0003,
+        "weight_decay": 0.01
+      },
+      "mhp": {},
+      "sampler": "domain",
+      "norm": "domain",
+      "epochs": 21,
+      "val_f1_mean": 0.9398782948492973,
+      "val_f1_sd": 0.003837340187004496,
+      "n_configs": 12
+    },
+    "erm_mixed": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "mhp": {},
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 11,
+      "val_f1_mean": 0.936497057145738,
+      "val_f1_sd": 0.011234735402167276,
+      "n_configs": 12
+    },
+    "sagm": {
+      "opt": "sagm",
+      "method": "erm",
+      "hp": {
+        "alpha": 0.001,
+        "lr": 0.03,
+        "rho": 0.02
+      },
+      "mhp": {},
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 5,
+      "val_f1_mean": 0.927755356469041,
+      "val_f1_sd": 0.012930944066520766,
+      "n_configs": 12
+    },
+    "disam": {
+      "opt": "disam",
+      "method": "erm",
+      "hp": {
+        "lam": 0.1,
+        "lr": 0.1,
+        "rho": 0.2
+      },
+      "mhp": {},
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 5,
+      "val_f1_mean": 0.9594252606026353,
+      "val_f1_sd": 0.005491641157707356,
+      "n_configs": 12
+    },
+    "coral": {
+      "opt": "adamw",
+      "method": "coral",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "lam": 1.0
+      },
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 8,
+      "val_f1_mean": 0.9483099883681637,
+      "val_f1_sd": 0.00794022392042287,
+      "n_configs": 12
+    },
+    "groupdro": {
+      "opt": "adamw",
+      "method": "groupdro",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "eta": 0.001
+      },
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 8,
+      "val_f1_mean": 0.9635039090399052,
+      "val_f1_sd": 0.0011964265989852939,
+      "n_configs": 12
+    }
+  },
+  "smell": {
+    "domnorm": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.01
+      },
+      "mhp": {},
+      "sampler": "domain",
+      "norm": "domain",
+      "epochs": 68,
+      "val_f1_mean": 0.8115179887022242,
+      "val_f1_sd": 0.003406297167281701,
+      "n_configs": 12
+    },
+    "erm_mixed": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.01
+      },
+      "mhp": {},
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 75,
+      "val_f1_mean": 0.8106169182580584,
+      "val_f1_sd": 0.02521632261423398,
+      "n_configs": 12
+    },
+    "sagm": {
+      "opt": "sagm",
+      "method": "erm",
+      "hp": {
+        "alpha": 0.001,
+        "lr": 0.01,
+        "rho": 0.05
+      },
+      "mhp": {},
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 68,
+      "val_f1_mean": 0.8085428006418316,
+      "val_f1_sd": 0.01674670930217575,
+      "n_configs": 12
+    },
+    "disam": {
+      "opt": "disam",
+      "method": "erm",
+      "hp": {
+        "lam": 0.1,
+        "lr": 0.01,
+        "rho": 0.02
+      },
+      "mhp": {},
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 81,
+      "val_f1_mean": 0.8044003754319498,
+      "val_f1_sd": 0.020981672744982784,
+      "n_configs": 12
+    },
+    "coral": {
+      "opt": "adamw",
+      "method": "coral",
+      "hp": {
+        "lr": 0.001
+      },
+      "mhp": {
+        "lam": 3.0
+      },
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 79,
+      "val_f1_mean": 0.8465262155621417,
+      "val_f1_sd": 0.0051998821469516005,
+      "n_configs": 12
+    },
+    "groupdro": {
+      "opt": "adamw",
+      "method": "groupdro",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "eta": 0.1
+      },
+      "sampler": "mixed",
+      "norm": "train",
+      "epochs": 87,
+      "val_f1_mean": 0.8208990464806036,
+      "val_f1_sd": 0.015001681486585032,
+      "n_configs": 12
+    }
+  }
+}

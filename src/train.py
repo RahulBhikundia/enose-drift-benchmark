@@ -50,7 +50,26 @@ def split_domains(dataset, split):
     raise ValueError(split)
 
 
-def load_data(dataset, split):
+def domain_standardize(X, dom):
+    """Per-domain normalization: standardize each domain (batch/session) with its OWN feature
+    statistics. For evaluation domains this uses their unlabeled inputs (transductive, like per-batch
+    sensor recalibration); labels are never used. Applied on top of the usual train-scaler output."""
+    X = X.copy()
+    for k in np.unique(dom):
+        m = dom == k
+        flat = X[m].reshape(-1, X.shape[-1])
+        X[m] = (X[m] - flat.mean(0)) / (flat.std(0) + 1e-8)
+    return X
+
+
+def load_data(dataset, split, norm="train"):
+    D = _load_data(dataset, split)
+    if norm == "domain":
+        D["Xtr"] = domain_standardize(D["Xtr"], D["dtr"]); D["Xev"] = domain_standardize(D["Xev"], D["dev"])
+    return D
+
+
+def _load_data(dataset, split):
     tr_d, ev_d, role = split_domains(dataset, split)
     if dataset == "uci":
         df = load_uci(); F = feature_columns()
@@ -132,9 +151,11 @@ def eval_all(model, D, Xev, n_cls, tev=None):
 def run(args):
     torch.manual_seed(args.seed); np.random.seed(args.seed)
     rng = np.random.default_rng(args.seed)
-    D = load_data(args.dataset, args.split)
+    D = load_data(args.dataset, args.split, args.norm)
     Xtr = torch.tensor(D["Xtr"], dtype=torch.float32, device=DEV)
     ytr = torch.tensor(D["ytr"], dtype=torch.long, device=DEV)
+    if args.method in ("coral", "groupdro") or args.opt == "disam":
+        assert args.sampler == "mixed", f"{args.method}/{args.opt} needs multi-domain batches: use --sampler mixed"
     Xev = torch.tensor(D["Xev"], dtype=torch.float32, device=DEV)
     dom_ids = {k: i for i, k in enumerate(D["train_domains"])}       # domain -> 0..K-1 (time order)
     mhp = json.loads(args.mhp)
@@ -151,14 +172,54 @@ def run(args):
     tscale = lambda v: (float(v) - tmin) / max(1.0, tmax - tmin)  # noqa: E731
     dt_unit = 1.0 / max(1.0, tmax - tmin)                         # one domain step in scaled time
     K = len(dom_ids)
+    dtr_idx = torch.tensor([dom_ids[v] for v in D["dtr"]], dtype=torch.long, device=DEV)  # per-sample 0..K-1
+    q_dro = torch.ones(K, device=DEV) / K                          # GroupDRO domain weights
+    lossf_none = torch.nn.CrossEntropyLoss(reduction="none")
 
     def fwd(x, t=None):
         return model(x, t) if time_input else model(x)
 
-    def loss_fn(xb, yb, k):
-        """Training loss for one domain-homogeneous batch from domain value k."""
+    def domain_losses(per_sample, db):
+        present = torch.unique(db)
+        return present, torch.stack([per_sample[db == d].mean() for d in present])
+
+    def coral_penalty(f, db):
+        """DomainBed CORAL: mean over domain pairs of mean-diff^2 + covariance-diff^2 (both averaged)."""
+        present = torch.unique(db)
+        stats = []
+        for d in present:
+            fd = f[db == d]
+            if len(fd) < 2:
+                continue
+            mu = fd.mean(0, keepdim=True); c = fd - mu
+            stats.append((mu, c.t() @ c / (len(fd) - 1)))
+        pen, n = 0.0, 0
+        for i in range(len(stats)):
+            for j in range(i + 1, len(stats)):
+                pen = pen + (stats[i][0] - stats[j][0]).pow(2).mean() + (stats[i][1] - stats[j][1]).pow(2).mean(); n += 1
+        return pen / max(n, 1)
+
+    def loss_fn(xb, yb, k, db=None, perturb=False):
+        """Training loss for one batch. k = domain value of a domain-homogeneous batch; db = per-sample
+        domain index (0..K-1), used by the multi-domain methods (CORAL, GroupDRO, DISAM)."""
+        nonlocal q_dro
+        if args.opt == "disam":                       # perturbation loss CE - lam*Var_d(L_d); descent: CE
+            if not perturb:
+                return lossf(model(xb), yb)
+            per = lossf_none(model(xb), yb)
+            _, ld = domain_losses(per, db)
+            return per.mean() - json.loads(args.hp).get("lam", 0.1) * ld.var(unbiased=False)
         if args.method == "erm":
             return lossf(fwd(xb), yb)
+        if args.method == "coral":
+            f = model.features(xb)
+            return lossf(model.head(f), yb) + mhp.get("lam", 1.0) * coral_penalty(f, db)
+        if args.method == "groupdro":                 # online GroupDRO (Sagawa et al.), DomainBed form
+            present, ld = domain_losses(lossf_none(model(xb), yb), db)
+            with torch.no_grad():
+                q_dro[present] *= torch.exp(mhp.get("eta", 0.01) * ld)
+                q_dro /= q_dro.sum()
+            return (q_dro[present] * ld).sum() / q_dro[present].sum()
         if args.method == "recency":                  # RIDER-style: up-weight recent domains
             g = mhp.get("gamma", 0.7)
             w = np.array([g ** (K - 1 - i) for i in range(K)]); w = w / w.mean()
@@ -182,13 +243,13 @@ def run(args):
         batches = (domain_batches(D["dtr"], args.bs, rng) if args.sampler == "domain"
                    else mixed_batches(D["dtr"], args.bs, rng))
         for k, idx in batches:
-            xb, yb = Xtr[idx], ytr[idx]
+            xb, yb, db = Xtr[idx], ytr[idx], dtr_idx[idx]
             if isinstance(opt, SAM):
-                def closure():
-                    opt.zero_grad(); l = loss_fn(xb, yb, k); l.backward(); return l
+                def closure(perturb=True):
+                    opt.zero_grad(); l = loss_fn(xb, yb, k, db, perturb); l.backward(); return l
                 loss = opt.step(closure)
             else:
-                opt.zero_grad(); loss = loss_fn(xb, yb, k); loss.backward()
+                opt.zero_grad(); loss = loss_fn(xb, yb, k, db); loss.backward()
                 if isinstance(opt, SAMSAM):
                     opt.set_domain(dom_ids[k], loss.item())
                 opt.step()
@@ -211,7 +272,7 @@ def run(args):
         torch.cuda.synchronize()
     train_time = time.perf_counter() - t0 - eval_time
     getattr(opt, "move_back", lambda: None)()        # evaluate at un-perturbed weights
-    out = dict(dataset=args.dataset, split=args.split, opt=args.opt, method=args.method, mhp=mhp, sampler=args.sampler, hp=hp, seed=args.seed, epochs=args.epochs,
+    out = dict(dataset=args.dataset, split=args.split, opt=args.opt, method=args.method, mhp=mhp, sampler=args.sampler, norm=args.norm, hp=hp, seed=args.seed, epochs=args.epochs,
                bs=args.bs, diverged=diverged, n_steps=n_steps, fwd_bwd_passes=fb,
                train_time_s=train_time, device=str(DEV),
                gpu=torch.cuda.get_device_name(0) if DEV.type == "cuda" else None,
@@ -221,6 +282,13 @@ def run(args):
     if not diverged:
         res, pred = eval_all(model, D, Xev, D["n_cls"], tev)
         out["final_eval"] = res
+        # collapse check: accuracy on (up to) 4096 training samples; a run that "trains" to near chance
+        # without a non-finite loss is flagged collapsed (see analysis).
+        n = min(len(Xtr), 4096)
+        sel_c = np.random.default_rng(1).choice(len(Xtr), n, replace=False)
+        ttr = (torch.tensor([tscale(v) for v in D["dtr"][sel_c]], dtype=torch.float32, device=DEV) if time_input else None)
+        out["train_acc"] = float((predict(model, Xtr[sel_c], ttr) == D["ytr"][sel_c]).mean())
+        out["collapsed"] = bool(out["train_acc"] < 0.5)
         if D["role"] == "test":
             out["test_pred"] = pred.tolist(); out["test_true"] = D["yev"].tolist(); out["test_dom"] = D["dev"].tolist()
         if args.sharpness and not time_input:
@@ -242,7 +310,9 @@ def parse(argv=None):
     p.add_argument("--epochs", type=int, default=100)
     p.add_argument("--bs", type=int, default=64)
     p.add_argument("--sharpness", action="store_true")
-    p.add_argument("--method", choices=["erm", "recency", "gi"], default="erm")
+    p.add_argument("--method", choices=["erm", "recency", "gi", "coral", "groupdro"], default="erm")
+    p.add_argument("--norm", choices=["train", "domain"], default="train",
+                   help="train: one scaler fit on training data; domain: per-domain standardization")
     p.add_argument("--sampler", choices=["domain", "mixed"], default="domain")
     p.add_argument("--mhp", default="{}", help="method hyperparameters (JSON)")
     p.add_argument("--out", required=True)
