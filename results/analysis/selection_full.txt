@@ -1,0 +1,34 @@
+576 runs with val + test + fold2
+
+dataset   method  n_configs  rho_val_test  rho_val_fold2  oracle_test  test_of_val_pick  n_ok  rho_val_test_ok  regret_val  regret_mean_sd  regret_twofold  regret_random
+  smell    adamw         12         0.497          0.804        0.794             0.794    12            0.497       0.000           0.000           0.032          0.024
+  smell    coral         12        -0.070          0.420        0.832             0.800    12           -0.070       0.032           0.032           0.032          0.024
+  smell    disam         12         0.909          0.497        0.819             0.819     8            0.857       0.000           0.015           0.015          0.274
+  smell groupdro         12         0.608          0.888        0.781             0.763    12            0.608       0.018           0.018           0.000          0.021
+  smell     msam         12         0.839          0.867        0.805             0.657     6           -0.086       0.148           0.004           0.148          0.403
+  smell  recency         12        -0.077          0.909        0.805             0.771    12           -0.077       0.034           0.034           0.034          0.042
+  smell      sam         12         0.930          0.965        0.800             0.800     8            0.833       0.000           0.000           0.000          0.267
+  smell      sgd         12         0.790          0.811        0.821             0.736     9            0.517       0.085           0.000           0.037          0.250
+    uci    adamw         12        -0.974          0.592        0.585             0.535    12           -0.974       0.050           0.050           0.050          0.019
+    uci    coral         12        -0.042          0.804        0.608             0.579    12           -0.042       0.030           0.030           0.030          0.032
+    uci    disam         12        -0.490          0.469        0.640             0.510    12           -0.490       0.130           0.130           0.134          0.066
+    uci groupdro         12        -0.434          0.790        0.629             0.551    12           -0.434       0.077           0.077           0.077          0.059
+    uci     msam         12         0.860         -0.231        0.602             0.598    11            0.818       0.005           0.005           0.005          0.202
+    uci  recency         12        -0.671          0.741        0.638             0.580    12           -0.671       0.058           0.208           0.058          0.067
+    uci      sam         12         0.434          0.133        0.616             0.551    12            0.434       0.065           0.065           0.048          0.195
+    uci      sgd         12         0.277         -0.550        0.643             0.530    12            0.277       0.113           0.040           0.080          0.179
+
+mean over methods:
+         rho_val_test  rho_val_test_ok  rho_val_fold2  regret_val  regret_mean_sd  regret_twofold  regret_random
+dataset                                                                                                         
+smell           0.553            0.385          0.770       0.040           0.013           0.037          0.163
+uci            -0.130           -0.135          0.344       0.066           0.076           0.060          0.102
+
+methods where validation-picked config is no better than a random pick (regret_val >= regret_random):
+dataset   method  regret_val  regret_random
+  smell    coral       0.032          0.024
+    uci    adamw       0.050          0.019
+    uci    disam       0.130          0.066
+    uci groupdro       0.077          0.059
+
+figure -> D:\IIT Jodhpur\ML CSL7620\Project ML\figures\selection_val_vs_test.png

@@ -1,0 +1,69 @@
+1152 jobs
+[1/1152] test uci sgd lr0.003_weight_decay0 s0 F1=0.6551727524509671
+[26/1152] test uci sgd lr0.03_weight_decay0.001 s1 F1=0.5314417865109048
+[51/1152] test uci adamw lr0.0003_weight_decay0.01 s2 F1=0.555496372205649
+[76/1152] test uci sam lr0.01_rho0.05 s0 F1=0.6170156333595613
+[101/1152] test uci sam lr0.1_rho0.05 s1 F1=0.06451722390440058
+[126/1152] test uci msam lr0.03_rho0.3 s2 F1=0.6049525847816444
+[151/1152] test uci recency gamma0.7_lr0.0003 s0 F1=0.6166116318094957
+[176/1152] test uci recency gamma0.7_lr0.003 s1 F1=0.6478084122287285
+[201/1152] test uci coral lam1_lr0.001 s2 F1=0.5164172508254884
+[226/1152] test uci groupdro eta1_lr0.0003 s0 F1=0.591097658704377
+[251/1152] test uci groupdro eta1_lr0.003 s1 F1=0.45976016216683807
+[276/1152] test uci disam lam0.1_lr0.03_rho0.2 s2 F1=0.5498500886399398
+[301/1152] test smell sgd lr0.01_weight_decay0.0001 s0 F1=0.7646598035987557
+[326/1152] test smell adamw lr0.0001_weight_decay0 s1 F1=0.7484612205313574
+[351/1152] test smell adamw lr0.001_weight_decay0.1 s2 F1=0.717812920842516
+[376/1152] test smell sam lr0.03_rho0.05 s0 F1=0.6909609009414602
+[401/1152] test smell msam lr0.01_rho0.3 s1 F1=0.7884270693684025
+[426/1152] test smell msam lr0.1_rho0.3 s2 F1=0.034039676895609106
+[451/1152] test smell recency gamma0.7_lr0.001 s0 F1=0.7287809674073544
+[476/1152] test smell coral lam1_lr0.0003 s1 F1=0.7918543340808448
+Traceback (most recent call last):
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\run_selection_study.py", line 80, in <module>
+    main()
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\run_selection_study.py", line 71, in main
+    r = run(parse(["--dataset", ds, "--split", split, "--opt", opt, "--hp", json.dumps(hp), "--method", method,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\src\train.py", line 178, in run
+    out = torch.cat([_decide(model(X[i:i + bs], t[i:i + bs])) for i in range(0, len(X), bs)])
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\src\train.py", line 87, in load_data
+    
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\src\train.py", line 114, in _load_data
+    df = twin_features(); F = twin_columns(df)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\src\train.py", line 113, in build
+    if dataset in ("twin", "twinreg"):
+               ^^^^^^^^^^^^^^^^^
+numpy._core._exceptions._ArrayMemoryError: Unable to allocate 6.06 MiB for an array with shape (2649, 100, 6) and data type float32
+1152 jobs
+[501/1152] test smell coral lam1_lr0.003 s2 F1=0.8405049067537559
+[526/1152] test smell groupdro eta1_lr0.001 s0 F1=0.7808919244549363
+[551/1152] test smell disam lam0.1_lr0.01_rho0.2 s1 F1=0.7743459666594226
+[576/1152] test smell disam lam0.1_lr0.1_rho0.2 s2 F1=0.1086637651103249
+[601/1152] fold2 uci sgd lr0.03_weight_decay0.001 s0 F1=0.7742115487041143
+[626/1152] fold2 uci adamw lr0.0003_weight_decay0.01 s1 F1=0.7460802211963389
+[651/1152] fold2 uci sam lr0.01_rho0.02 s2 F1=0.7789451224995332
+[676/1152] fold2 uci sam lr0.1_rho0.05 s0 F1=0.05910800644814616
+[701/1152] fold2 uci msam lr0.03_rho0.3 s1 F1=0.8095599175127584
+[726/1152] fold2 uci recency gamma0.5_lr0.0003 s2 F1=0.7650323713025261
+[751/1152] fold2 uci recency gamma0.7_lr0.003 s0 F1=0.91756059287097
+[776/1152] fold2 uci coral lam1_lr0.001 s1 F1=0.8267654626701384
+[801/1152] fold2 uci groupdro eta0.1_lr0.0003 s2 F1=0.7227401576348199
+[826/1152] fold2 uci groupdro eta1_lr0.003 s0 F1=0.8337485540630063
+[851/1152] fold2 uci disam lam0.1_lr0.03_rho0.2 s1 F1=0.791517756162297
+[876/1152] fold2 smell sgd lr0.01_weight_decay0 s2 F1=0.8365353491810684
+[901/1152] fold2 smell adamw lr0.0001_weight_decay0 s0 F1=0.7613028655683978
+[926/1152] fold2 smell adamw lr0.001_weight_decay0.1 s1 F1=0.7906889586425818
+[951/1152] fold2 smell sam lr0.03_rho0.02 s2 F1=0.685034049426328
+[976/1152] fold2 smell msam lr0.01_rho0.3 s0 F1=0.8667938437588194
+[1001/1152] fold2 smell msam lr0.1_rho0.3 s1 F1=0.01590566037735849
+[1026/1152] fold2 smell recency gamma0.5_lr0.001 s2 F1=0.8725028946080939
+[1051/1152] fold2 smell coral lam1_lr0.0003 s0 F1=0.8179055516587739
+[1076/1152] fold2 smell coral lam1_lr0.003 s1 F1=0.8532531783158785
+[1101/1152] fold2 smell groupdro eta0.1_lr0.001 s2 F1=0.7892247340679249
+[1126/1152] fold2 smell disam lam0.1_lr0.01_rho0.2 s0 F1=0.7966267915555403
+[1151/1152] fold2 smell disam lam0.1_lr0.1_rho0.2 s1 F1=0.3222382544321791
+DONE selection
+ALLDONE 
