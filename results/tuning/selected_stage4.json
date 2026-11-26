@@ -1,0 +1,104 @@
+{
+  "uci": {
+    "ccpca": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.001
+      },
+      "mhp": {
+        "k": 3
+      },
+      "sampler": "domain",
+      "norm": "ccpca",
+      "epochs": 5,
+      "val_f1_mean": 0.9404516775156315,
+      "val_f1_sd": 0.006382736100815385,
+      "n_configs": 12
+    },
+    "driftaug": {
+      "opt": "adamw",
+      "method": "driftaug",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "gain": 0.2,
+        "offset": 0.3
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 17,
+      "val_f1_mean": 0.9440176433923985,
+      "val_f1_sd": 0.013026597250520345,
+      "n_configs": 12
+    },
+    "swa": {
+      "opt": "adamw",
+      "method": "swa",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "swa_start": 10
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 8,
+      "val_f1_mean": 0.9231446748752251,
+      "val_f1_sd": 0.020785566741737625,
+      "n_configs": 12
+    }
+  },
+  "smell": {
+    "ccpca": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "k": 2
+      },
+      "sampler": "domain",
+      "norm": "ccpca",
+      "epochs": 91,
+      "val_f1_mean": 0.8584074150838582,
+      "val_f1_sd": 0.0061684244973879455,
+      "n_configs": 12
+    },
+    "driftaug": {
+      "opt": "adamw",
+      "method": "driftaug",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "gain": 0.1,
+        "offset": 0.1
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 94,
+      "val_f1_mean": 0.7971318511406134,
+      "val_f1_sd": 0.01490864571949479,
+      "n_configs": 12
+    },
+    "swa": {
+      "opt": "adamw",
+      "method": "swa",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "swa_start": 50
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 42,
+      "val_f1_mean": 0.7891862281577279,
+      "val_f1_sd": 0.017316479592841032,
+      "n_configs": 12
+    }
+  }
+}

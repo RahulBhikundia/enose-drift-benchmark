@@ -26,6 +26,13 @@ class MLP(nn.Module):
             x = torch.cat([x, t[:, None]], dim=1)
         return self.net(x)
 
+    def features(self, x):
+        """Penultimate representation (used by CORAL)."""
+        return self.net[:-1](x)
+
+    def head(self, h):
+        return self.net[-1](h)
+
 
 class CNN1D(nn.Module):
     """SmellNet: input (B, T, C=6) -> three 1-D conv layers -> global average pool -> linear."""
@@ -45,6 +52,10 @@ class CNN1D(nn.Module):
             x = torch.cat([x, t[:, None, None].expand(-1, x.shape[1], 1)], dim=2)
         h = self.f(x.transpose(1, 2))          # (B, C, T)
         return self.head(h.mean(-1))
+
+    def features(self, x):
+        """Penultimate representation (used by CORAL)."""
+        return self.f(x.transpose(1, 2)).mean(-1)
 
 
 def build_model(dataset: str, time_input: bool = False):

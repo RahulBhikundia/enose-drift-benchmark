@@ -40,11 +40,13 @@ def split_domains(dataset, split):
     """Return (train_domains, eval_domains, eval_role) where eval_role is 'val' or 'test'."""
     if dataset == "uci":
         if split == "tune": return [1, 2, 3], [4, 5], "val"
+        if split == "tune2": return [1, 2], [3], "val"          # 2nd (earlier) forward fold, selection study
         if split == "main": return [1, 2, 3, 4, 5], [6, 7, 8, 9, 10], "test"
         if split.startswith("roll"):
             k = int(split[4:]); return list(range(1, k + 1)), [k + 1], "test"
     else:
         if split == "tune": return [1, 2, 3, 4], [5], "val"
+        if split == "tune2": return [1, 2, 3], [4], "val"       # 2nd (earlier) forward fold, selection study
         if split.startswith("loso"):
             h = int(split[4:]); return [s for s in range(1, 7) if s != h], [h], "test"
     raise ValueError(split)
@@ -62,10 +64,32 @@ def domain_standardize(X, dom):
     return X
 
 
-def load_data(dataset, split, norm="train"):
+def ccpca_directions(X, y, dom, k):
+    """Class-conditional drift directions (a generalisation of CC-PCA, Artursson et al. 2000), estimated
+    from TRAINING data only: per-(domain, class) mean minus that class's overall mean leaves the
+    domain-specific (drift) part; its top-k principal directions are returned (d x k).
+    SmellNet windows (N, T, C) are reduced to per-window channel means first (directions live in C)."""
+    F = X.mean(1) if X.ndim == 3 else X
+    res = []
+    for c in np.unique(y):
+        mc = F[y == c].mean(0)
+        for d in np.unique(dom[y == c]):
+            res.append(F[(y == c) & (dom == d)].mean(0) - mc)
+    _, _, vt = np.linalg.svd(np.array(res), full_matrices=False)
+    return vt[:k].T
+
+
+def project_out(X, P):
+    return X - (X @ P) @ P.T          # works for (N, d) and (N, T, C) with P of shape (C, k)
+
+
+def load_data(dataset, split, norm="train", norm_k=1):
     D = _load_data(dataset, split)
     if norm == "domain":
         D["Xtr"] = domain_standardize(D["Xtr"], D["dtr"]); D["Xev"] = domain_standardize(D["Xev"], D["dev"])
+    if norm == "ccpca":
+        P = ccpca_directions(D["Xtr"], D["ytr"], D["dtr"], norm_k)
+        D["Xtr"] = project_out(D["Xtr"], P); D["Xev"] = project_out(D["Xev"], P)
     return D
 
 
@@ -148,10 +172,10 @@ def eval_all(model, D, Xev, n_cls, tev=None):
 
 
 # ---------------------------------------------------------------- train
-def run(args):
+def run(args, return_model=False):
     torch.manual_seed(args.seed); np.random.seed(args.seed)
     rng = np.random.default_rng(args.seed)
-    D = load_data(args.dataset, args.split, args.norm)
+    D = load_data(args.dataset, args.split, args.norm, args.norm_k)
     Xtr = torch.tensor(D["Xtr"], dtype=torch.float32, device=DEV)
     ytr = torch.tensor(D["ytr"], dtype=torch.long, device=DEV)
     if args.method in ("coral", "groupdro") or args.opt == "disam":
@@ -209,8 +233,18 @@ def run(args):
             per = lossf_none(model(xb), yb)
             _, ld = domain_losses(per, db)
             return per.mean() - json.loads(args.hp).get("lam", 0.1) * ld.var(unbiased=False)
-        if args.method == "erm":
+        if args.method in ("erm", "swa"):
             return lossf(fwd(xb), yb)
+        if args.method == "driftaug":                 # random gain/offset mimicking sensor drift
+            a, s_ = mhp.get("gain", 0.2), mhp.get("offset", 0.2)
+            if xb.ndim == 2:                          # UCI: one gain per sensor (8 features each)
+                g = 1 + a * (2 * torch.rand(len(xb), 16, 1, device=DEV) - 1)
+                xa = (xb.view(len(xb), 16, 8) * g).view(len(xb), -1) + s_ * torch.randn_like(xb)
+            else:                                     # SmellNet: one gain and offset per channel per window
+                C = xb.shape[-1]
+                g = 1 + a * (2 * torch.rand(len(xb), 1, C, device=DEV) - 1)
+                xa = xb * g + s_ * torch.randn(len(xb), 1, C, device=DEV)
+            return lossf(fwd(xa), yb)
         if args.method == "coral":
             f = model.features(xb)
             return lossf(model.head(f), yb) + mhp.get("lam", 1.0) * coral_penalty(f, db)
@@ -231,6 +265,12 @@ def run(args):
             ls = [lossf(fwd(xb, t - f * dmax), yb) for f in (0.5, 1.0)]
             return l0 + mhp.get("lam", 1.0) * torch.stack(ls).max()
         raise ValueError(args.method)
+    swa_start = mhp.get("swa_start", 0) if args.method == "swa" else 0
+    swa_model = torch.optim.swa_utils.AveragedModel(model) if swa_start else None
+    swa_on = False                                    # dense (every-step) averaging from epoch swa_start
+
+    def eval_model():
+        return swa_model.module if swa_on else model
     curve, n_steps, fb = [], 0, 0
     best = dict(score=-1, epoch=0)
     if DEV.type == "cuda":
@@ -254,12 +294,14 @@ def run(args):
                     opt.set_domain(dom_ids[k], loss.item())
                 opt.step()
             ep_loss.append(loss.item()); n_steps += 1; fb += passes
+            if swa_model is not None and ep >= swa_start:
+                swa_model.update_parameters(model); swa_on = True
         if not np.isfinite(np.mean(ep_loss)):
             diverged = True; break
         if D["role"] == "val":                       # per-epoch validation only in tuning mode
             te = time.perf_counter()
             getattr(opt, "move_back", lambda: None)()
-            r, _ = eval_all(model, D, Xev, D["n_cls"], tev)
+            r, _ = eval_all(eval_model(), D, Xev, D["n_cls"], tev)
             getattr(opt, "move_up", lambda: None)()
             score = r["mean_over_domains"]["macro_f1_present"]
             curve.append(dict(epoch=ep, train_loss=float(np.mean(ep_loss)), val_macro_f1=score))
@@ -272,7 +314,8 @@ def run(args):
         torch.cuda.synchronize()
     train_time = time.perf_counter() - t0 - eval_time
     getattr(opt, "move_back", lambda: None)()        # evaluate at un-perturbed weights
-    out = dict(dataset=args.dataset, split=args.split, opt=args.opt, method=args.method, mhp=mhp, sampler=args.sampler, norm=args.norm, hp=hp, seed=args.seed, epochs=args.epochs,
+    model = eval_model()                              # SWA: everything below uses the averaged weights
+    out = dict(dataset=args.dataset, split=args.split, opt=args.opt, method=args.method, mhp=mhp, sampler=args.sampler, norm=args.norm, norm_k=args.norm_k, hp=hp, seed=args.seed, epochs=args.epochs,
                bs=args.bs, diverged=diverged, n_steps=n_steps, fwd_bwd_passes=fb,
                train_time_s=train_time, device=str(DEV),
                gpu=torch.cuda.get_device_name(0) if DEV.type == "cuda" else None,
@@ -297,7 +340,7 @@ def run(args):
             out["sharpness"] = all_sharpness(model, Xtr[sel], ytr[sel])
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     Path(args.out).write_text(json.dumps(out))
-    return out
+    return (out, model, D) if return_model else out
 
 
 def parse(argv=None):
@@ -310,8 +353,9 @@ def parse(argv=None):
     p.add_argument("--epochs", type=int, default=100)
     p.add_argument("--bs", type=int, default=64)
     p.add_argument("--sharpness", action="store_true")
-    p.add_argument("--method", choices=["erm", "recency", "gi", "coral", "groupdro"], default="erm")
-    p.add_argument("--norm", choices=["train", "domain"], default="train",
+    p.add_argument("--method", choices=["erm", "recency", "gi", "coral", "groupdro", "driftaug", "swa"], default="erm")
+    p.add_argument("--norm_k", type=int, default=1, help="number of drift directions removed by --norm ccpca")
+    p.add_argument("--norm", choices=["train", "domain", "ccpca"], default="train",
                    help="train: one scaler fit on training data; domain: per-domain standardization")
     p.add_argument("--sampler", choices=["domain", "mixed"], default="domain")
     p.add_argument("--mhp", default="{}", help="method hyperparameters (JSON)")
