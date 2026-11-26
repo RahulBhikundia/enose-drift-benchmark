@@ -1,0 +1,32 @@
+360 jobs
+[1/360] uci samsam_extrap {'lr': 0.01, 'rho': 1.0, 'beta': -1.0} {} s0 best_val=0.8920975960651853
+[21/360] uci samsam_extrap {'lr': 0.03, 'rho': 1.0, 'beta': 0.5} {} s2 best_val=0.9284793470814438
+[41/360] uci samsam_disagree {'lr': 0.01, 'rho': 1.0, 'beta': -0.5} {} s1 best_val=0.8966295025087676
+[61/360] uci samsam_disagree {'lr': 0.1, 'rho': 1.0, 'beta': -1.0} {} s0 best_val=0.8472536230844543
+[81/360] uci samsam_random {'lr': 0.01, 'rho': 1.0, 'beta': 0.5} {} s2 best_val=0.9329821792671305
+[101/360] uci samsam_random {'lr': 0.1, 'rho': 1.0, 'beta': -0.5} {} s1 best_val=0.8796519168601549
+[121/360] uci recency {'lr': 0.001} {'gamma': 0.3} s0 best_val=0.9400758460521829
+[141/360] uci recency {'lr': 0.003} {'gamma': 0.7} s2 best_val=0.9386716830072945
+[161/360] uci gi {'lr': 0.001} {'lam': 0.5, 'delta': 1.0} s1 best_val=0.9448807021294283
+[181/360] smell samsam_extrap {'lr': 0.01, 'rho': 0.3, 'beta': -1.0} {} s0 best_val=0.7529416292569435
+[201/360] smell samsam_extrap {'lr': 0.03, 'rho': 0.3, 'beta': 0.5} {} s2 best_val=0.8024629561945146
+[221/360] smell samsam_disagree {'lr': 0.01, 'rho': 0.3, 'beta': -0.5} {} s1 best_val=0.8050473593092439
+[241/360] smell samsam_disagree {'lr': 0.1, 'rho': 0.3, 'beta': -1.0} {} s0 best_val=0.2443887362874249
+[261/360] smell samsam_random {'lr': 0.01, 'rho': 0.3, 'beta': 0.5} {} s2 best_val=0.8191699004793968
+[281/360] smell samsam_random {'lr': 0.1, 'rho': 0.3, 'beta': -0.5} {} s1 best_val=0.3215425166963555
+[301/360] smell recency {'lr': 0.001} {'gamma': 0.3} s0 best_val=0.8323887601438653
+[321/360] smell recency {'lr': 0.003} {'gamma': 0.7} s2 best_val=0.8131068967485127
+[341/360] smell gi {'lr': 0.001} {'lam': 0.5, 'delta': 1.0} s1 best_val=0.773967056824015
+DONE stage 2
+== uci
+  samsam_extrap    val_F1 0.926 +- 0.018  epochs  20  hp {'beta': -0.5, 'lr': 0.03, 'rho': 1.0}
+  samsam_disagree  val_F1 0.935 +- 0.008  epochs  31  hp {'beta': 1.0, 'lr': 0.03, 'rho': 1.0}
+  samsam_random    val_F1 0.931 +- 0.009  epochs  11  hp {'beta': -0.5, 'lr': 0.03, 'rho': 1.0}
+  recency          val_F1 0.942 +- 0.008  epochs  10  hp {'lr': 0.003}
+  gi               val_F1 0.947 +- 0.003  epochs  27  hp {'lr': 0.003}
+== smell
+  samsam_extrap    val_F1 0.805 +- 0.007  epochs  31  hp {'beta': 0.5, 'lr': 0.03, 'rho': 0.3}
+  samsam_disagree  val_F1 0.801 +- 0.009  epochs  89  hp {'beta': -0.5, 'lr': 0.01, 'rho': 0.3}
+  samsam_random    val_F1 0.805 +- 0.004  epochs  55  hp {'beta': 1.0, 'lr': 0.01, 'rho': 0.3}
+  recency          val_F1 0.855 +- 0.003  epochs  86  hp {'lr': 0.003}
+  gi               val_F1 0.817 +- 0.035  epochs  75  hp {'lr': 0.003}

@@ -1,0 +1,20 @@
+144 jobs
+[1/144] smell sgd {'lr': 0.003, 'weight_decay': 0.0} {} s0 best_val=0.7919889745216964
+[21/144] smell sgd {'lr': 0.03, 'weight_decay': 0.0} {} s2 best_val=0.7585991534482172
+[41/144] smell adamw {'lr': 0.0001, 'weight_decay': 0.01} {} s1 best_val=0.7358673773878246
+[61/144] smell adamw {'lr': 0.001, 'weight_decay': 0.1} {} s0 best_val=0.7873745410185126
+[81/144] smell sam {'lr': 0.01, 'rho': 0.1} {} s2 best_val=0.8245877926612545
+[101/144] smell sam {'lr': 0.1, 'rho': 0.05} {} s1 best_val=0.12433947328846749
+[121/144] smell msam {'lr': 0.03, 'rho': 0.1} {} s0 best_val=0.7630903486219512
+[141/144] smell msam {'lr': 0.1, 'rho': 1.0} {} s2 best_val=0.16969257552851474
+DONE stage 1
+== uci
+  sgd              val_F1 0.927 +- 0.017  epochs   6  hp {'lr': 0.03, 'weight_decay': 0.001}
+  adamw            val_F1 0.936 +- 0.003  epochs   8  hp {'lr': 0.003, 'weight_decay': 0.0}
+  sam              val_F1 0.935 +- 0.009  epochs   5  hp {'lr': 0.03, 'rho': 0.02}
+  msam             val_F1 0.942 +- 0.016  epochs  24  hp {'lr': 0.03, 'rho': 1.0}
+== smell
+  sgd              val_F1 0.810 +- 0.020  epochs  83  hp {'lr': 0.01, 'weight_decay': 0.0}
+  adamw            val_F1 0.816 +- 0.007  epochs  81  hp {'lr': 0.003, 'weight_decay': 0.01}
+  sam              val_F1 0.816 +- 0.006  epochs  86  hp {'lr': 0.01, 'rho': 0.1}
+  msam             val_F1 0.817 +- 0.024  epochs  62  hp {'lr': 0.03, 'rho': 0.3}

@@ -1,0 +1,110 @@
+{
+  "uci": {
+    "sgd": {
+      "opt": "sgd",
+      "method": "erm",
+      "hp": {
+        "lr": 0.03,
+        "weight_decay": 0.001
+      },
+      "mhp": {},
+      "epochs": 6,
+      "val_f1_mean": 0.9272852570028176,
+      "val_f1_sd": 0.016641307069563675,
+      "n_configs": 12
+    },
+    "adamw": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.0
+      },
+      "mhp": {},
+      "epochs": 8,
+      "val_f1_mean": 0.9358013813936097,
+      "val_f1_sd": 0.002914718756844294,
+      "n_configs": 12
+    },
+    "sam": {
+      "opt": "sam",
+      "method": "erm",
+      "hp": {
+        "lr": 0.03,
+        "rho": 0.02
+      },
+      "mhp": {},
+      "epochs": 5,
+      "val_f1_mean": 0.9354253293486566,
+      "val_f1_sd": 0.008736008012188577,
+      "n_configs": 12
+    },
+    "msam": {
+      "opt": "msam",
+      "method": "erm",
+      "hp": {
+        "lr": 0.03,
+        "rho": 1.0
+      },
+      "mhp": {},
+      "epochs": 24,
+      "val_f1_mean": 0.9421135201044469,
+      "val_f1_sd": 0.01582675329983689,
+      "n_configs": 12
+    }
+  },
+  "smell": {
+    "sgd": {
+      "opt": "sgd",
+      "method": "erm",
+      "hp": {
+        "lr": 0.01,
+        "weight_decay": 0.0
+      },
+      "mhp": {},
+      "epochs": 83,
+      "val_f1_mean": 0.8100042826978407,
+      "val_f1_sd": 0.019543082073234297,
+      "n_configs": 12
+    },
+    "adamw": {
+      "opt": "adamw",
+      "method": "erm",
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.01
+      },
+      "mhp": {},
+      "epochs": 81,
+      "val_f1_mean": 0.8155724428996552,
+      "val_f1_sd": 0.006564475736612714,
+      "n_configs": 12
+    },
+    "sam": {
+      "opt": "sam",
+      "method": "erm",
+      "hp": {
+        "lr": 0.01,
+        "rho": 0.1
+      },
+      "mhp": {},
+      "epochs": 86,
+      "val_f1_mean": 0.8157031020333476,
+      "val_f1_sd": 0.006282516380393626,
+      "n_configs": 12
+    },
+    "msam": {
+      "opt": "msam",
+      "method": "erm",
+      "hp": {
+        "lr": 0.03,
+        "rho": 0.3
+      },
+      "mhp": {},
+      "epochs": 62,
+      "val_f1_mean": 0.8171340231715879,
+      "val_f1_sd": 0.024008595468238043,
+      "n_configs": 12
+    }
+  }
+}
