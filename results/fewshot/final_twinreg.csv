@@ -1,0 +1,601 @@
+dataset,split,seed,k,method,hp,f1,n_domains
+twinreg,louo1,0,1,none,{},0.7932507134135472,1
+twinreg,louo1,0,1,affine,"{""lam"": 1.0}",0.37097522454203424,1
+twinreg,louo1,0,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7806153890501515,1
+twinreg,louo1,0,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7102072488978822,1
+twinreg,louo1,0,2,none,{},0.7830212067427571,1
+twinreg,louo1,0,2,affine,"{""lam"": 1.0}",0.6937509170518621,1
+twinreg,louo1,0,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7651125336065215,1
+twinreg,louo1,0,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7480224520788757,1
+twinreg,louo1,0,5,none,{},0.7808286084677283,1
+twinreg,louo1,0,5,affine,"{""lam"": 1.0}",0.6864502227612173,1
+twinreg,louo1,0,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7883354715248206,1
+twinreg,louo1,0,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.780717598250056,1
+twinreg,louo1,1,1,none,{},0.7119617473283508,1
+twinreg,louo1,1,1,affine,"{""lam"": 1.0}",0.30600156301126646,1
+twinreg,louo1,1,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7859056279753744,1
+twinreg,louo1,1,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7740394207291925,1
+twinreg,louo1,1,2,none,{},0.7035541009449442,1
+twinreg,louo1,1,2,affine,"{""lam"": 1.0}",0.5556987759388377,1
+twinreg,louo1,1,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7025795708897472,1
+twinreg,louo1,1,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5786394009554556,1
+twinreg,louo1,1,5,none,{},0.7151868387990996,1
+twinreg,louo1,1,5,affine,"{""lam"": 1.0}",0.6286830345800303,1
+twinreg,louo1,1,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7888125816545578,1
+twinreg,louo1,1,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8078859142790151,1
+twinreg,louo1,2,1,none,{},0.7895264206476391,1
+twinreg,louo1,2,1,affine,"{""lam"": 1.0}",0.7130368236757605,1
+twinreg,louo1,2,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7546604630235347,1
+twinreg,louo1,2,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7154479308635127,1
+twinreg,louo1,2,2,none,{},0.7891268750874973,1
+twinreg,louo1,2,2,affine,"{""lam"": 1.0}",0.6765869894372847,1
+twinreg,louo1,2,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7108008007393714,1
+twinreg,louo1,2,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6042261205122184,1
+twinreg,louo1,2,5,none,{},0.7760875207684925,1
+twinreg,louo1,2,5,affine,"{""lam"": 1.0}",0.7582906474735037,1
+twinreg,louo1,2,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7881580292753956,1
+twinreg,louo1,2,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7541732821406884,1
+twinreg,louo1,3,1,none,{},0.5578179632707787,1
+twinreg,louo1,3,1,affine,"{""lam"": 1.0}",0.6167468706442935,1
+twinreg,louo1,3,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6988065548099744,1
+twinreg,louo1,3,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7605734305714509,1
+twinreg,louo1,3,2,none,{},0.533404391812413,1
+twinreg,louo1,3,2,affine,"{""lam"": 1.0}",0.5609213452303861,1
+twinreg,louo1,3,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6446652258633259,1
+twinreg,louo1,3,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6019736747630389,1
+twinreg,louo1,3,5,none,{},0.5621669314194384,1
+twinreg,louo1,3,5,affine,"{""lam"": 1.0}",0.46626762471869454,1
+twinreg,louo1,3,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7146213422888895,1
+twinreg,louo1,3,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7739438714136341,1
+twinreg,louo1,4,1,none,{},0.7512207224424625,1
+twinreg,louo1,4,1,affine,"{""lam"": 1.0}",0.6065688565268612,1
+twinreg,louo1,4,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.756844307207373,1
+twinreg,louo1,4,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6816873820178699,1
+twinreg,louo1,4,2,none,{},0.7489718343866035,1
+twinreg,louo1,4,2,affine,"{""lam"": 1.0}",0.6725853953086982,1
+twinreg,louo1,4,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7561407593054543,1
+twinreg,louo1,4,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7688879289715895,1
+twinreg,louo1,4,5,none,{},0.7548152303434859,1
+twinreg,louo1,4,5,affine,"{""lam"": 1.0}",0.7292978465734044,1
+twinreg,louo1,4,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7757279116053883,1
+twinreg,louo1,4,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7808840523231346,1
+twinreg,louo1,5,1,none,{},0.7701852022745526,1
+twinreg,louo1,5,1,affine,"{""lam"": 1.0}",0.4363800105249186,1
+twinreg,louo1,5,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.784927213723563,1
+twinreg,louo1,5,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7356176702855013,1
+twinreg,louo1,5,2,none,{},0.767534357932471,1
+twinreg,louo1,5,2,affine,"{""lam"": 1.0}",0.45118492458668746,1
+twinreg,louo1,5,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7369241345039278,1
+twinreg,louo1,5,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.669092036496977,1
+twinreg,louo1,5,5,none,{},0.7660779009820722,1
+twinreg,louo1,5,5,affine,"{""lam"": 1.0}",0.620478636758736,1
+twinreg,louo1,5,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7837840171366495,1
+twinreg,louo1,5,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7213159370864326,1
+twinreg,louo1,6,1,none,{},0.7140682532051571,1
+twinreg,louo1,6,1,affine,"{""lam"": 1.0}",0.6048083997987398,1
+twinreg,louo1,6,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7112739436174197,1
+twinreg,louo1,6,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7802321370392042,1
+twinreg,louo1,6,2,none,{},0.719055583864254,1
+twinreg,louo1,6,2,affine,"{""lam"": 1.0}",0.7357207762279323,1
+twinreg,louo1,6,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7173243077541787,1
+twinreg,louo1,6,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7066368255759607,1
+twinreg,louo1,6,5,none,{},0.6936776641101647,1
+twinreg,louo1,6,5,affine,"{""lam"": 1.0}",0.681565706162901,1
+twinreg,louo1,6,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7304512895256429,1
+twinreg,louo1,6,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7370430490979399,1
+twinreg,louo1,7,1,none,{},0.8034980854439971,1
+twinreg,louo1,7,1,affine,"{""lam"": 1.0}",0.7961714030018363,1
+twinreg,louo1,7,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7375175268244876,1
+twinreg,louo1,7,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.42364767321220487,1
+twinreg,louo1,7,2,none,{},0.7725942156791412,1
+twinreg,louo1,7,2,affine,"{""lam"": 1.0}",0.6052107616277755,1
+twinreg,louo1,7,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7693078123252617,1
+twinreg,louo1,7,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7763931534923636,1
+twinreg,louo1,7,5,none,{},0.7816588643249522,1
+twinreg,louo1,7,5,affine,"{""lam"": 1.0}",0.7737818294272742,1
+twinreg,louo1,7,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7631307685590998,1
+twinreg,louo1,7,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7835395125690259,1
+twinreg,louo1,8,1,none,{},0.7649401144244911,1
+twinreg,louo1,8,1,affine,"{""lam"": 1.0}",0.6909480018916122,1
+twinreg,louo1,8,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7337793807927308,1
+twinreg,louo1,8,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7356045121582782,1
+twinreg,louo1,8,2,none,{},0.7679047482300303,1
+twinreg,louo1,8,2,affine,"{""lam"": 1.0}",0.7006854659845114,1
+twinreg,louo1,8,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7658362449493441,1
+twinreg,louo1,8,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6803467321217127,1
+twinreg,louo1,8,5,none,{},0.7702101872476803,1
+twinreg,louo1,8,5,affine,"{""lam"": 1.0}",0.6834013916609707,1
+twinreg,louo1,8,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7771673260506327,1
+twinreg,louo1,8,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7971173820439426,1
+twinreg,louo1,9,1,none,{},0.7741168320226722,1
+twinreg,louo1,9,1,affine,"{""lam"": 1.0}",-0.006475286114308476,1
+twinreg,louo1,9,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.758244196710869,1
+twinreg,louo1,9,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.695726949968568,1
+twinreg,louo1,9,2,none,{},0.7815645187920257,1
+twinreg,louo1,9,2,affine,"{""lam"": 1.0}",0.7824546274705906,1
+twinreg,louo1,9,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7268067729919669,1
+twinreg,louo1,9,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.624527925690957,1
+twinreg,louo1,9,5,none,{},0.7699880900750209,1
+twinreg,louo1,9,5,affine,"{""lam"": 1.0}",0.713120107933634,1
+twinreg,louo1,9,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7919089823440717,1
+twinreg,louo1,9,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7731814534483338,1
+twinreg,louo2,0,1,none,{},0.6893545164848855,1
+twinreg,louo2,0,1,affine,"{""lam"": 1.0}",0.49342176867185317,1
+twinreg,louo2,0,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.775039721890645,1
+twinreg,louo2,0,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8170981714986842,1
+twinreg,louo2,0,2,none,{},0.7062605500025778,1
+twinreg,louo2,0,2,affine,"{""lam"": 1.0}",0.8469683403591014,1
+twinreg,louo2,0,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8058546816314845,1
+twinreg,louo2,0,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7671363775847526,1
+twinreg,louo2,0,5,none,{},0.7032800461794106,1
+twinreg,louo2,0,5,affine,"{""lam"": 1.0}",0.8078799285986924,1
+twinreg,louo2,0,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8101003862019578,1
+twinreg,louo2,0,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8395526354973406,1
+twinreg,louo2,1,1,none,{},0.775617999654723,1
+twinreg,louo2,1,1,affine,"{""lam"": 1.0}",0.7894642791408684,1
+twinreg,louo2,1,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8108282816689982,1
+twinreg,louo2,1,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7246526472797128,1
+twinreg,louo2,1,2,none,{},0.7648348198465849,1
+twinreg,louo2,1,2,affine,"{""lam"": 1.0}",0.7947252876196834,1
+twinreg,louo2,1,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7888310849241102,1
+twinreg,louo2,1,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7957620060747386,1
+twinreg,louo2,1,5,none,{},0.7965905803451041,1
+twinreg,louo2,1,5,affine,"{""lam"": 1.0}",0.8338331254851027,1
+twinreg,louo2,1,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8334638267148962,1
+twinreg,louo2,1,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8513702465116466,1
+twinreg,louo2,2,1,none,{},0.7723727076563797,1
+twinreg,louo2,2,1,affine,"{""lam"": 1.0}",0.8536489731944619,1
+twinreg,louo2,2,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.825260719900044,1
+twinreg,louo2,2,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.4872375109655528,1
+twinreg,louo2,2,2,none,{},0.7579248430935931,1
+twinreg,louo2,2,2,affine,"{""lam"": 1.0}",0.6816350879091715,1
+twinreg,louo2,2,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8370464444054723,1
+twinreg,louo2,2,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8636290797636226,1
+twinreg,louo2,2,5,none,{},0.7612848833379693,1
+twinreg,louo2,2,5,affine,"{""lam"": 1.0}",0.8178099592142365,1
+twinreg,louo2,2,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8534552681636338,1
+twinreg,louo2,2,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8669327642421061,1
+twinreg,louo2,3,1,none,{},0.5278656528237206,1
+twinreg,louo2,3,1,affine,"{""lam"": 1.0}",0.7160547570930809,1
+twinreg,louo2,3,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7288022486892026,1
+twinreg,louo2,3,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.773774077508523,1
+twinreg,louo2,3,2,none,{},0.5129461193907932,1
+twinreg,louo2,3,2,affine,"{""lam"": 1.0}",0.7369841610688199,1
+twinreg,louo2,3,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7225364590629559,1
+twinreg,louo2,3,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8175959592052677,1
+twinreg,louo2,3,5,none,{},0.5259612816511356,1
+twinreg,louo2,3,5,affine,"{""lam"": 1.0}",0.61470508349069,1
+twinreg,louo2,3,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7479603157680487,1
+twinreg,louo2,3,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8376058061452142,1
+twinreg,louo2,4,1,none,{},0.808134423002676,1
+twinreg,louo2,4,1,affine,"{""lam"": 1.0}",0.6098616038019318,1
+twinreg,louo2,4,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7956183702427287,1
+twinreg,louo2,4,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7699688403526971,1
+twinreg,louo2,4,2,none,{},0.8044645455382875,1
+twinreg,louo2,4,2,affine,"{""lam"": 1.0}",0.7609759170442034,1
+twinreg,louo2,4,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8102580766653896,1
+twinreg,louo2,4,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7650067935465139,1
+twinreg,louo2,4,5,none,{},0.8162001192734184,1
+twinreg,louo2,4,5,affine,"{""lam"": 1.0}",0.8068538262125013,1
+twinreg,louo2,4,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8039761226242311,1
+twinreg,louo2,4,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7876483558878331,1
+twinreg,louo2,5,1,none,{},0.5591838230945392,1
+twinreg,louo2,5,1,affine,"{""lam"": 1.0}",0.6367358438833054,1
+twinreg,louo2,5,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.679518116465066,1
+twinreg,louo2,5,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7657522716876168,1
+twinreg,louo2,5,2,none,{},0.5583028371948955,1
+twinreg,louo2,5,2,affine,"{""lam"": 1.0}",0.5414094273542533,1
+twinreg,louo2,5,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6853662282581185,1
+twinreg,louo2,5,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7664678158642344,1
+twinreg,louo2,5,5,none,{},0.5717654895542288,1
+twinreg,louo2,5,5,affine,"{""lam"": 1.0}",0.7754505052683816,1
+twinreg,louo2,5,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7258191214554781,1
+twinreg,louo2,5,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7446228415228678,1
+twinreg,louo2,6,1,none,{},0.7217534516550762,1
+twinreg,louo2,6,1,affine,"{""lam"": 1.0}",0.8257731788943844,1
+twinreg,louo2,6,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8135600825215361,1
+twinreg,louo2,6,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.790926333465484,1
+twinreg,louo2,6,2,none,{},0.7232176622778161,1
+twinreg,louo2,6,2,affine,"{""lam"": 1.0}",0.7696265511095155,1
+twinreg,louo2,6,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8094713852916282,1
+twinreg,louo2,6,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8325045144551495,1
+twinreg,louo2,6,5,none,{},0.7141466681751953,1
+twinreg,louo2,6,5,affine,"{""lam"": 1.0}",0.8028838664092377,1
+twinreg,louo2,6,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8072072412633567,1
+twinreg,louo2,6,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8374437727465764,1
+twinreg,louo2,7,1,none,{},0.7118969066637557,1
+twinreg,louo2,7,1,affine,"{""lam"": 1.0}",0.6993029170461607,1
+twinreg,louo2,7,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7445298438685957,1
+twinreg,louo2,7,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6492487998853275,1
+twinreg,louo2,7,2,none,{},0.6973696974151167,1
+twinreg,louo2,7,2,affine,"{""lam"": 1.0}",0.5175087793297732,1
+twinreg,louo2,7,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.640331378305355,1
+twinreg,louo2,7,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5916129291712462,1
+twinreg,louo2,7,5,none,{},0.699884168183059,1
+twinreg,louo2,7,5,affine,"{""lam"": 1.0}",0.7602481013351658,1
+twinreg,louo2,7,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7704720574805543,1
+twinreg,louo2,7,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8481471600154945,1
+twinreg,louo2,8,1,none,{},0.6431399964799992,1
+twinreg,louo2,8,1,affine,"{""lam"": 1.0}",0.8497284627169649,1
+twinreg,louo2,8,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8330393970436244,1
+twinreg,louo2,8,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.3384389865794418,1
+twinreg,louo2,8,2,none,{},0.6108455238202154,1
+twinreg,louo2,8,2,affine,"{""lam"": 1.0}",0.694879755674594,1
+twinreg,louo2,8,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8008274229218035,1
+twinreg,louo2,8,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.810034192035475,1
+twinreg,louo2,8,5,none,{},0.6156018118634586,1
+twinreg,louo2,8,5,affine,"{""lam"": 1.0}",0.6977605515941457,1
+twinreg,louo2,8,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8074957952682112,1
+twinreg,louo2,8,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8500339012316547,1
+twinreg,louo2,9,1,none,{},0.7641740641865324,1
+twinreg,louo2,9,1,affine,"{""lam"": 1.0}",0.8130329763945823,1
+twinreg,louo2,9,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8071386953314736,1
+twinreg,louo2,9,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5195744359494102,1
+twinreg,louo2,9,2,none,{},0.7683147472252045,1
+twinreg,louo2,9,2,affine,"{""lam"": 1.0}",0.8302060476450656,1
+twinreg,louo2,9,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8195069732523398,1
+twinreg,louo2,9,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6563527309071804,1
+twinreg,louo2,9,5,none,{},0.757578143089951,1
+twinreg,louo2,9,5,affine,"{""lam"": 1.0}",0.7749880343685749,1
+twinreg,louo2,9,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8321721031441065,1
+twinreg,louo2,9,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8576916324475244,1
+twinreg,louo3,0,1,none,{},0.7102662658458405,1
+twinreg,louo3,0,1,affine,"{""lam"": 1.0}",0.416240026635076,1
+twinreg,louo3,0,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7894059842721759,1
+twinreg,louo3,0,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.797002885410788,1
+twinreg,louo3,0,2,none,{},0.7018385637891698,1
+twinreg,louo3,0,2,affine,"{""lam"": 1.0}",0.8196245544588432,1
+twinreg,louo3,0,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7634288739230994,1
+twinreg,louo3,0,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7135240187975027,1
+twinreg,louo3,0,5,none,{},0.7209944099067264,1
+twinreg,louo3,0,5,affine,"{""lam"": 1.0}",0.8784954968771785,1
+twinreg,louo3,0,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7551424346122433,1
+twinreg,louo3,0,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7192809478503963,1
+twinreg,louo3,1,1,none,{},0.8205043911277219,1
+twinreg,louo3,1,1,affine,"{""lam"": 1.0}",0.6948751237114716,1
+twinreg,louo3,1,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7953951111492412,1
+twinreg,louo3,1,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.712014436840513,1
+twinreg,louo3,1,2,none,{},0.8154829177200292,1
+twinreg,louo3,1,2,affine,"{""lam"": 1.0}",0.8036724829274513,1
+twinreg,louo3,1,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7948591507098974,1
+twinreg,louo3,1,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7979080764656988,1
+twinreg,louo3,1,5,none,{},0.8240810414551394,1
+twinreg,louo3,1,5,affine,"{""lam"": 1.0}",0.8068296797953933,1
+twinreg,louo3,1,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8261260319766086,1
+twinreg,louo3,1,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8421670945549186,1
+twinreg,louo3,2,1,none,{},0.8277132186076062,1
+twinreg,louo3,2,1,affine,"{""lam"": 1.0}",0.6981497039507345,1
+twinreg,louo3,2,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7984460921805957,1
+twinreg,louo3,2,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6878752232723592,1
+twinreg,louo3,2,2,none,{},0.8312241088604838,1
+twinreg,louo3,2,2,affine,"{""lam"": 1.0}",0.6060934720144532,1
+twinreg,louo3,2,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8090095598144855,1
+twinreg,louo3,2,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7925216543415298,1
+twinreg,louo3,2,5,none,{},0.8264878266960192,1
+twinreg,louo3,2,5,affine,"{""lam"": 1.0}",0.8677104493824249,1
+twinreg,louo3,2,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8074540979015533,1
+twinreg,louo3,2,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7945562391766321,1
+twinreg,louo3,3,1,none,{},0.7610992818422196,1
+twinreg,louo3,3,1,affine,"{""lam"": 1.0}",0.7163499515523827,1
+twinreg,louo3,3,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8105019347442441,1
+twinreg,louo3,3,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8509192610821781,1
+twinreg,louo3,3,2,none,{},0.7490219972269242,1
+twinreg,louo3,3,2,affine,"{""lam"": 1.0}",0.7372847571785535,1
+twinreg,louo3,3,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8032923323148261,1
+twinreg,louo3,3,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8010577965993932,1
+twinreg,louo3,3,5,none,{},0.7534327762492773,1
+twinreg,louo3,3,5,affine,"{""lam"": 1.0}",0.42359434424443365,1
+twinreg,louo3,3,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7979129639156177,1
+twinreg,louo3,3,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8243808363741801,1
+twinreg,louo3,4,1,none,{},0.8206769502743438,1
+twinreg,louo3,4,1,affine,"{""lam"": 1.0}",0.5882359266602619,1
+twinreg,louo3,4,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7238182455900597,1
+twinreg,louo3,4,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7059648347886871,1
+twinreg,louo3,4,2,none,{},0.8131373241162363,1
+twinreg,louo3,4,2,affine,"{""lam"": 1.0}",0.7893361011817219,1
+twinreg,louo3,4,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8064289769818493,1
+twinreg,louo3,4,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7563693483826575,1
+twinreg,louo3,4,5,none,{},0.8125265669237591,1
+twinreg,louo3,4,5,affine,"{""lam"": 1.0}",0.6799767821099068,1
+twinreg,louo3,4,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.808851784950049,1
+twinreg,louo3,4,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7927975164512681,1
+twinreg,louo3,5,1,none,{},0.7857410532137779,1
+twinreg,louo3,5,1,affine,"{""lam"": 1.0}",0.6823226163297831,1
+twinreg,louo3,5,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.807298339927584,1
+twinreg,louo3,5,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8162022894403349,1
+twinreg,louo3,5,2,none,{},0.7978207241645532,1
+twinreg,louo3,5,2,affine,"{""lam"": 1.0}",0.8006941950781956,1
+twinreg,louo3,5,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7520439791493125,1
+twinreg,louo3,5,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7180036088603836,1
+twinreg,louo3,5,5,none,{},0.7778759867036455,1
+twinreg,louo3,5,5,affine,"{""lam"": 1.0}",0.7788100568892222,1
+twinreg,louo3,5,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8114323922558717,1
+twinreg,louo3,5,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8074716565826854,1
+twinreg,louo3,6,1,none,{},0.8058315335469053,1
+twinreg,louo3,6,1,affine,"{""lam"": 1.0}",0.8141593233572201,1
+twinreg,louo3,6,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7390791592747503,1
+twinreg,louo3,6,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7116026056033322,1
+twinreg,louo3,6,2,none,{},0.8079079493366539,1
+twinreg,louo3,6,2,affine,"{""lam"": 1.0}",0.8015071281795559,1
+twinreg,louo3,6,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8121600979776786,1
+twinreg,louo3,6,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7607764510930091,1
+twinreg,louo3,6,5,none,{},0.7935339387983602,1
+twinreg,louo3,6,5,affine,"{""lam"": 1.0}",0.7412740902460436,1
+twinreg,louo3,6,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7982528196827954,1
+twinreg,louo3,6,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7935614037110343,1
+twinreg,louo3,7,1,none,{},0.7211644525024373,1
+twinreg,louo3,7,1,affine,"{""lam"": 1.0}",0.7626008487324749,1
+twinreg,louo3,7,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7933951681136469,1
+twinreg,louo3,7,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.617293612999035,1
+twinreg,louo3,7,2,none,{},0.7146813454296894,1
+twinreg,louo3,7,2,affine,"{""lam"": 1.0}",0.6000427601682639,1
+twinreg,louo3,7,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8216567283130866,1
+twinreg,louo3,7,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8226164983746318,1
+twinreg,louo3,7,5,none,{},0.7342479860949847,1
+twinreg,louo3,7,5,affine,"{""lam"": 1.0}",0.8010070086292612,1
+twinreg,louo3,7,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8348719231315977,1
+twinreg,louo3,7,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8395516132406236,1
+twinreg,louo3,8,1,none,{},0.8507373135952587,1
+twinreg,louo3,8,1,affine,"{""lam"": 1.0}",0.7170669510396992,1
+twinreg,louo3,8,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8237311062944076,1
+twinreg,louo3,8,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6949755905803036,1
+twinreg,louo3,8,2,none,{},0.8445525429501552,1
+twinreg,louo3,8,2,affine,"{""lam"": 1.0}",0.6151034677917566,1
+twinreg,louo3,8,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8035506189519415,1
+twinreg,louo3,8,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7827266731680986,1
+twinreg,louo3,8,5,none,{},0.8557548204131443,1
+twinreg,louo3,8,5,affine,"{""lam"": 1.0}",0.7864905869810405,1
+twinreg,louo3,8,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8487902094960719,1
+twinreg,louo3,8,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7988100305946705,1
+twinreg,louo3,9,1,none,{},0.8235529886029784,1
+twinreg,louo3,9,1,affine,"{""lam"": 1.0}",0.479551358353566,1
+twinreg,louo3,9,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7965113864803501,1
+twinreg,louo3,9,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7994478736110805,1
+twinreg,louo3,9,2,none,{},0.8238909131562409,1
+twinreg,louo3,9,2,affine,"{""lam"": 1.0}",0.6410924730646985,1
+twinreg,louo3,9,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.797843410386097,1
+twinreg,louo3,9,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7939532509028384,1
+twinreg,louo3,9,5,none,{},0.818825290509604,1
+twinreg,louo3,9,5,affine,"{""lam"": 1.0}",0.7703276160581516,1
+twinreg,louo3,9,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.8280311115398746,1
+twinreg,louo3,9,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8399655073748287,1
+twinreg,louo4,0,1,none,{},0.45630616491556597,1
+twinreg,louo4,0,1,affine,"{""lam"": 1.0}",0.6545518016004735,1
+twinreg,louo4,0,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6712257232561869,1
+twinreg,louo4,0,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7237365134735927,1
+twinreg,louo4,0,2,none,{},0.4886038406460028,1
+twinreg,louo4,0,2,affine,"{""lam"": 1.0}",0.7747556822583185,1
+twinreg,louo4,0,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7112703499589736,1
+twinreg,louo4,0,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7318001904881044,1
+twinreg,louo4,0,5,none,{},0.46857663456488385,1
+twinreg,louo4,0,5,affine,"{""lam"": 1.0}",0.8091806899560129,1
+twinreg,louo4,0,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7152369888231493,1
+twinreg,louo4,0,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.8140849343828248,1
+twinreg,louo4,1,1,none,{},0.3926418959709115,1
+twinreg,louo4,1,1,affine,"{""lam"": 1.0}",0.8070348268807773,1
+twinreg,louo4,1,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6314742691628035,1
+twinreg,louo4,1,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.684818329863835,1
+twinreg,louo4,1,2,none,{},0.4295832757017689,1
+twinreg,louo4,1,2,affine,"{""lam"": 1.0}",0.7560800405423986,1
+twinreg,louo4,1,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6831194406781318,1
+twinreg,louo4,1,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6691047623783326,1
+twinreg,louo4,1,5,none,{},0.47000387597541293,1
+twinreg,louo4,1,5,affine,"{""lam"": 1.0}",0.830455727646609,1
+twinreg,louo4,1,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7102641849251579,1
+twinreg,louo4,1,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6611111491106099,1
+twinreg,louo4,2,1,none,{},0.5506416560660514,1
+twinreg,louo4,2,1,affine,"{""lam"": 1.0}",0.6055771509994022,1
+twinreg,louo4,2,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6701623029852652,1
+twinreg,louo4,2,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6701598923613841,1
+twinreg,louo4,2,2,none,{},0.5971424929899909,1
+twinreg,louo4,2,2,affine,"{""lam"": 1.0}",0.49371767562476077,1
+twinreg,louo4,2,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6224424288314496,1
+twinreg,louo4,2,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.752281106701268,1
+twinreg,louo4,2,5,none,{},0.4556528796456968,1
+twinreg,louo4,2,5,affine,"{""lam"": 1.0}",0.5694864129196806,1
+twinreg,louo4,2,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6003891633654053,1
+twinreg,louo4,2,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5728896930607891,1
+twinreg,louo4,3,1,none,{},0.37299318744416377,1
+twinreg,louo4,3,1,affine,"{""lam"": 1.0}",0.7379106939364772,1
+twinreg,louo4,3,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5211169588439087,1
+twinreg,louo4,3,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6328888524037344,1
+twinreg,louo4,3,2,none,{},0.43821597379094657,1
+twinreg,louo4,3,2,affine,"{""lam"": 1.0}",0.7510840741381946,1
+twinreg,louo4,3,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6819547177032248,1
+twinreg,louo4,3,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6329674927121494,1
+twinreg,louo4,3,5,none,{},0.3453053028925237,1
+twinreg,louo4,3,5,affine,"{""lam"": 1.0}",0.7286233089945524,1
+twinreg,louo4,3,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5931884579201547,1
+twinreg,louo4,3,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6843786613521153,1
+twinreg,louo4,4,1,none,{},0.4953049115061572,1
+twinreg,louo4,4,1,affine,"{""lam"": 1.0}",0.545736265915483,1
+twinreg,louo4,4,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5847508684803714,1
+twinreg,louo4,4,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.38747429825591206,1
+twinreg,louo4,4,2,none,{},0.583860296134506,1
+twinreg,louo4,4,2,affine,"{""lam"": 1.0}",0.729789236037085,1
+twinreg,louo4,4,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5871778868240272,1
+twinreg,louo4,4,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.55459116499078,1
+twinreg,louo4,4,5,none,{},0.49407035354469864,1
+twinreg,louo4,4,5,affine,"{""lam"": 1.0}",0.7436199605734634,1
+twinreg,louo4,4,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6086854112897664,1
+twinreg,louo4,4,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5775405838795076,1
+twinreg,louo4,5,1,none,{},0.39194152648004876,1
+twinreg,louo4,5,1,affine,"{""lam"": 1.0}",0.6459871517586386,1
+twinreg,louo4,5,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5291755235267748,1
+twinreg,louo4,5,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5846800167089202,1
+twinreg,louo4,5,2,none,{},0.3860701299944348,1
+twinreg,louo4,5,2,affine,"{""lam"": 1.0}",0.5915028202122854,1
+twinreg,louo4,5,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5310438068346306,1
+twinreg,louo4,5,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5943313101090668,1
+twinreg,louo4,5,5,none,{},0.45822505185663065,1
+twinreg,louo4,5,5,affine,"{""lam"": 1.0}",0.818498892323831,1
+twinreg,louo4,5,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6446088176575595,1
+twinreg,louo4,5,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7891323268225645,1
+twinreg,louo4,6,1,none,{},0.3296062607882867,1
+twinreg,louo4,6,1,affine,"{""lam"": 1.0}",0.5653957805021638,1
+twinreg,louo4,6,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.4965513636353317,1
+twinreg,louo4,6,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.13907490724812,1
+twinreg,louo4,6,2,none,{},0.28229999667153194,1
+twinreg,louo4,6,2,affine,"{""lam"": 1.0}",0.3483719025627945,1
+twinreg,louo4,6,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.40183059850021996,1
+twinreg,louo4,6,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.4419633087283906,1
+twinreg,louo4,6,5,none,{},0.284700559183241,1
+twinreg,louo4,6,5,affine,"{""lam"": 1.0}",0.529678050733963,1
+twinreg,louo4,6,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.3649457413893198,1
+twinreg,louo4,6,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.31817534551644355,1
+twinreg,louo4,7,1,none,{},0.4206921108848445,1
+twinreg,louo4,7,1,affine,"{""lam"": 1.0}",0.5116831091523686,1
+twinreg,louo4,7,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.2855888926916713,1
+twinreg,louo4,7,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.19054649426663473,1
+twinreg,louo4,7,2,none,{},0.4224927867209085,1
+twinreg,louo4,7,2,affine,"{""lam"": 1.0}",0.5221305596324981,1
+twinreg,louo4,7,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.39862867761697074,1
+twinreg,louo4,7,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.3771677354165951,1
+twinreg,louo4,7,5,none,{},0.4321176656427118,1
+twinreg,louo4,7,5,affine,"{""lam"": 1.0}",0.5772192173929573,1
+twinreg,louo4,7,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.3852912719301752,1
+twinreg,louo4,7,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.15976865641611926,1
+twinreg,louo4,8,1,none,{},0.3332024216917039,1
+twinreg,louo4,8,1,affine,"{""lam"": 1.0}",0.5795405041100661,1
+twinreg,louo4,8,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.20410693350117493,1
+twinreg,louo4,8,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.506991577640457,1
+twinreg,louo4,8,2,none,{},0.329141547322243,1
+twinreg,louo4,8,2,affine,"{""lam"": 1.0}",0.6102392645656953,1
+twinreg,louo4,8,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.44278598234052513,1
+twinreg,louo4,8,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.40647028766781046,1
+twinreg,louo4,8,5,none,{},0.6078053336294691,1
+twinreg,louo4,8,5,affine,"{""lam"": 1.0}",0.6284739316210592,1
+twinreg,louo4,8,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7413695118277117,1
+twinreg,louo4,8,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.7537261638003008,1
+twinreg,louo4,9,1,none,{},0.38033719949740774,1
+twinreg,louo4,9,1,affine,"{""lam"": 1.0}",0.7505366976723364,1
+twinreg,louo4,9,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6020264543538223,1
+twinreg,louo4,9,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5248001688838084,1
+twinreg,louo4,9,2,none,{},0.4329178549121695,1
+twinreg,louo4,9,2,affine,"{""lam"": 1.0}",0.7304672184366625,1
+twinreg,louo4,9,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.6645727085021261,1
+twinreg,louo4,9,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.675315787563645,1
+twinreg,louo4,9,5,none,{},0.45910287566535,1
+twinreg,louo4,9,5,affine,"{""lam"": 1.0}",0.8387314429284076,1
+twinreg,louo4,9,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.7077727150754722,1
+twinreg,louo4,9,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6937264857921357,1
+twinreg,louo5,0,1,none,{},0.4089597377421227,1
+twinreg,louo5,0,1,affine,"{""lam"": 1.0}",0.48762073615638424,1
+twinreg,louo5,0,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.31529284464822116,1
+twinreg,louo5,0,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.019215761077874483,1
+twinreg,louo5,0,2,none,{},0.45265865837304753,1
+twinreg,louo5,0,2,affine,"{""lam"": 1.0}",0.5671901464516624,1
+twinreg,louo5,0,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.41368923767327126,1
+twinreg,louo5,0,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.33932851364758077,1
+twinreg,louo5,0,5,none,{},0.3520115233999579,1
+twinreg,louo5,0,5,affine,"{""lam"": 1.0}",0.5933909092187238,1
+twinreg,louo5,0,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.3870044318976822,1
+twinreg,louo5,0,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.3870380061484038,1
+twinreg,louo5,1,1,none,{},-0.16376392345145052,1
+twinreg,louo5,1,1,affine,"{""lam"": 1.0}",0.3781991626249861,1
+twinreg,louo5,1,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.013682749908091485,1
+twinreg,louo5,1,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.4833290672546269,1
+twinreg,louo5,1,2,none,{},0.29782695900461076,1
+twinreg,louo5,1,2,affine,"{""lam"": 1.0}",0.3216629000557215,1
+twinreg,louo5,1,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.4253559956709073,1
+twinreg,louo5,1,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5353079620974871,1
+twinreg,louo5,1,5,none,{},-0.08849630993931856,1
+twinreg,louo5,1,5,affine,"{""lam"": 1.0}",0.5838912203925705,1
+twinreg,louo5,1,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.3002077035952051,1
+twinreg,louo5,1,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5961106439693814,1
+twinreg,louo5,2,1,none,{},0.10896291825288795,1
+twinreg,louo5,2,1,affine,"{""lam"": 1.0}",0.5776254289802827,1
+twinreg,louo5,2,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",-0.09050667784000055,1
+twinreg,louo5,2,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.8764760319438079,1
+twinreg,louo5,2,2,none,{},0.11154536608494636,1
+twinreg,louo5,2,2,affine,"{""lam"": 1.0}",0.5865957783464604,1
+twinreg,louo5,2,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",-0.28179961459154734,1
+twinreg,louo5,2,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-1.8971241577996607,1
+twinreg,louo5,2,5,none,{},-0.12147025966761227,1
+twinreg,louo5,2,5,affine,"{""lam"": 1.0}",0.4245560092293167,1
+twinreg,louo5,2,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.2909428709304617,1
+twinreg,louo5,2,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5448931750920374,1
+twinreg,louo5,3,1,none,{},0.3322395664862914,1
+twinreg,louo5,3,1,affine,"{""lam"": 1.0}",0.3305592598083311,1
+twinreg,louo5,3,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.35428042819512884,1
+twinreg,louo5,3,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.24227942087206678,1
+twinreg,louo5,3,2,none,{},0.3757514538217058,1
+twinreg,louo5,3,2,affine,"{""lam"": 1.0}",0.33114575362691656,1
+twinreg,louo5,3,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.4258869614636428,1
+twinreg,louo5,3,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5025064235937846,1
+twinreg,louo5,3,5,none,{},0.4135517880074815,1
+twinreg,louo5,3,5,affine,"{""lam"": 1.0}",0.37358776958896966,1
+twinreg,louo5,3,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5463752037642811,1
+twinreg,louo5,3,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5954194849833938,1
+twinreg,louo5,4,1,none,{},0.33269441550483203,1
+twinreg,louo5,4,1,affine,"{""lam"": 1.0}",0.45939949437598915,1
+twinreg,louo5,4,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",-0.027974240771944103,1
+twinreg,louo5,4,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-1.1848733690898472,1
+twinreg,louo5,4,2,none,{},0.3131425475951265,1
+twinreg,louo5,4,2,affine,"{""lam"": 1.0}",0.375118492202521,1
+twinreg,louo5,4,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.23224431285314306,1
+twinreg,louo5,4,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.19189997101197243,1
+twinreg,louo5,4,5,none,{},0.35559992459675027,1
+twinreg,louo5,4,5,affine,"{""lam"": 1.0}",0.4200236168393324,1
+twinreg,louo5,4,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.12120295877271714,1
+twinreg,louo5,4,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.325996920906087,1
+twinreg,louo5,5,1,none,{},0.26087184403575425,1
+twinreg,louo5,5,1,affine,"{""lam"": 1.0}",0.489601412897985,1
+twinreg,louo5,5,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5034861727268163,1
+twinreg,louo5,5,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5453355732667742,1
+twinreg,louo5,5,2,none,{},0.2837837908601851,1
+twinreg,louo5,5,2,affine,"{""lam"": 1.0}",0.6238870227135282,1
+twinreg,louo5,5,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.29390403932305487,1
+twinreg,louo5,5,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.3880427747993421,1
+twinreg,louo5,5,5,none,{},0.21227963642055936,1
+twinreg,louo5,5,5,affine,"{""lam"": 1.0}",0.49251449779694323,1
+twinreg,louo5,5,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.48257472195515805,1
+twinreg,louo5,5,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.3559807168463488,1
+twinreg,louo5,6,1,none,{},-0.0920275577271874,1
+twinreg,louo5,6,1,affine,"{""lam"": 1.0}",0.16927583992613449,1
+twinreg,louo5,6,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.019854083421882662,1
+twinreg,louo5,6,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.07546870800498118,1
+twinreg,louo5,6,2,none,{},-0.1207765044734499,1
+twinreg,louo5,6,2,affine,"{""lam"": 1.0}",0.3329492211770343,1
+twinreg,louo5,6,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.056714990662767195,1
+twinreg,louo5,6,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.622162660556415,1
+twinreg,louo5,6,5,none,{},-0.21456512968692643,1
+twinreg,louo5,6,5,affine,"{""lam"": 1.0}",0.4123479685115866,1
+twinreg,louo5,6,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.36105579984395786,1
+twinreg,louo5,6,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5846970161306994,1
+twinreg,louo5,7,1,none,{},-0.0778077297216202,1
+twinreg,louo5,7,1,affine,"{""lam"": 1.0}",0.22167581727214336,1
+twinreg,louo5,7,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.06470971113642532,1
+twinreg,louo5,7,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.17329535374141647,1
+twinreg,louo5,7,2,none,{},-0.11280631203873148,1
+twinreg,louo5,7,2,affine,"{""lam"": 1.0}",0.5773974008795248,1
+twinreg,louo5,7,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.06203409784624292,1
+twinreg,louo5,7,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.2206867190169025,1
+twinreg,louo5,7,5,none,{},-0.22929608054276907,1
+twinreg,louo5,7,5,affine,"{""lam"": 1.0}",0.4236377468696838,1
+twinreg,louo5,7,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.18536346198206988,1
+twinreg,louo5,7,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.5136369861120418,1
+twinreg,louo5,8,1,none,{},-0.10451452330844413,1
+twinreg,louo5,8,1,affine,"{""lam"": 1.0}",0.5661142905288719,1
+twinreg,louo5,8,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.4802783916600466,1
+twinreg,louo5,8,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-1.2766122405507492,1
+twinreg,louo5,8,2,none,{},-0.18115877089955612,1
+twinreg,louo5,8,2,affine,"{""lam"": 1.0}",0.48439221977893043,1
+twinreg,louo5,8,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",-0.05653569845684525,1
+twinreg,louo5,8,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",-0.25241205334749783,1
+twinreg,louo5,8,5,none,{},-0.14281960628423596,1
+twinreg,louo5,8,5,affine,"{""lam"": 1.0}",0.6310939688928752,1
+twinreg,louo5,8,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.5139366414656754,1
+twinreg,louo5,8,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.21205224802486455,1
+twinreg,louo5,9,1,none,{},0.18862584162996943,1
+twinreg,louo5,9,1,affine,"{""lam"": 1.0}",0.431828438846277,1
+twinreg,louo5,9,1,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.1724632729132023,1
+twinreg,louo5,9,1,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.46534145315701825,1
+twinreg,louo5,9,2,none,{},0.21753966471468655,1
+twinreg,louo5,9,2,affine,"{""lam"": 1.0}",0.497362190525958,1
+twinreg,louo5,9,2,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.4481760393709967,1
+twinreg,louo5,9,2,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.49164482181445324,1
+twinreg,louo5,9,5,none,{},0.2089380523974812,1
+twinreg,louo5,9,5,affine,"{""lam"": 1.0}",0.37223056432222956,1
+twinreg,louo5,9,5,ft_last,"{""lr"": 0.0001, ""steps"": 200}",0.4295433535178409,1
+twinreg,louo5,9,5,ft_all,"{""lr"": 0.0001, ""steps"": 50}",0.6653014561041524,1
