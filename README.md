@@ -1,7 +1,7 @@
 # Does Flatness Help Gas Sensors Survive Drift?
 
 CSL7620 Machine Learning course project, IIT Jodhpur, November 2026.
-Report (CVPR format): [`reports/final_report_cvpr.pdf`](reports/final_report_cvpr.pdf). Longer version with more explanation: [`reports/final_report.pdf`](reports/final_report.pdf).
+Report (CVPR format): [`reports/final_report_cvpr.pdf`](reports/final_report_cvpr.pdf).
 
 The project is a leakage-free benchmark of sharpness-aware optimizers (SAM, MSAM, SAGM, DISAM and our SA-MSAM variant), domain-generalization methods, few-shot recalibration and label-free test-time adaptation under three real kinds of electronic-nose drift:
 
@@ -34,14 +34,14 @@ scripts/
                          ablation, shift diagnosis, export_checkpoints.py
   analysis/              tables, bootstrap CIs, Wilcoxon + Holm, Friedman
   figures/               the four report figures
-  report/                builders for reports/final_report.pdf
+  report/                make_repro_tex.py: commit and re-training tables of the report
   orchestration/         Windows launchers used for the long unattended runs (restart-safe chains)
 tests/                   test_optim.py: our MSAM matches the official implementation step by step
 results/                 every run as JSON (tuning/, final/, selection/, fewshot/, tta/, ...), analysis/ tables, logs
 checkpoints/             seed-0 weights of SGD/AdamW/SAM/MSAM for every split + manifest.csv
 figures/                 report figures (PDF + PNG) and audit plots
 notes/                   decisions.md (dated decisions, pre-registrations), progress_log.md, audit_findings.md
-reports/                 final_report_cvpr.pdf (submission), cvpr/ (LaTeX source), final_report.pdf
+reports/                 final_report_cvpr.pdf (the report), cvpr/ (LaTeX source)
 data/README.md           dataset sources, versions, checksums, assumptions
 environment.yml          conda environment;  requirements.txt (ranges)  /  requirements.lock.txt (exact versions used)
 ```

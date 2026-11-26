@@ -19,5 +19,4 @@ dependencies:
       - tqdm==4.70.1
       - PyYAML==6.0.3
       - pillow==13.0.0
-      - reportlab        # only for scripts/report/make_final_report.py
       - pytest           # only for tests/
