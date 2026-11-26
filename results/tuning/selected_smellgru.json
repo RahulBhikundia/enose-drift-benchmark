@@ -1,0 +1,30 @@
+{
+  "adamw": {
+    "extra": [],
+    "hp": {
+      "lr": 0.003,
+      "weight_decay": 0.01
+    },
+    "method": "erm",
+    "mhp": {},
+    "opt": "adamw",
+    "epochs": 81,
+    "val_score_mean": 0.8309545882311994
+  },
+  "coral": {
+    "extra": [
+      "--sampler",
+      "mixed"
+    ],
+    "hp": {
+      "lr": 0.003
+    },
+    "method": "coral",
+    "mhp": {
+      "lam": 3.0
+    },
+    "opt": "adamw",
+    "epochs": 70,
+    "val_score_mean": 0.8419737316492214
+  }
+}

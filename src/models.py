@@ -58,11 +58,32 @@ class CNN1D(nn.Module):
         return self.f(x.transpose(1, 2)).mean(-1)
 
 
+class GRUNet(nn.Module):
+    """SmellNet architecture check (added 2026-11-14): input (B, T, C=6) -> 2-layer GRU (hidden 64) ->
+    mean over time -> linear. Same input, splits and protocol as CNN1D; only the architecture differs."""
+
+    def __init__(self, c_in=6, n_cls=50, hidden=64, layers=2):
+        super().__init__()
+        self.time_input = False
+        self.rnn = nn.GRU(c_in, hidden, num_layers=layers, batch_first=True)
+        self.head = nn.Linear(hidden, n_cls)
+
+    def features(self, x):
+        return self.rnn(x)[0].mean(1)
+
+    def forward(self, x, t=None):
+        return self.head(self.features(x))
+
+
 def build_model(dataset: str, time_input: bool = False):
+    if dataset == "smellgru":
+        return GRUNet()
     if dataset == "uci":
         return MLP(time_input=time_input)
     if dataset == "twin":                     # 64 features -> 4 gases
         return MLP(d_in=64, n_cls=4, time_input=time_input)
+    if dataset == "smellfeat":                # SmellNet 30 window summary features -> 50 substances
+        return MLP(d_in=30, n_cls=50, time_input=time_input)
     if dataset == "twinreg":                  # 64 features + gas one-hot -> log-concentration
         return MLP(d_in=68, n_cls=1, time_input=time_input)
     return CNN1D(time_input=time_input)

@@ -101,6 +101,17 @@ def load_data(dataset, split, norm="train", norm_k=1):
 
 
 def _load_data(dataset, split):
+    if dataset == "smellgru":                     # same raw SmellNet windows as "smell"; GRU instead of CNN
+        return _load_data("smell", split)
+    if dataset == "smellfeat":
+        # SmellNet, same windows and splits, but each window summarized by the 30 window_features used by the
+        # random-forest baseline (mean/std/min/max/slope per channel), train-only standardization -> MLP.
+        # Separates "features vs model" in the RF-vs-CNN comparison (added 2026-11-13).
+        from src.data_smellnet import window_features
+        D = _load_data("smell", split)
+        Ftr, Fev = window_features(D["Xtr"]), window_features(D["Xev"])
+        mu, sd = Ftr.mean(0), Ftr.std(0) + 1e-8
+        return dict(D, Xtr=(Ftr - mu) / sd, Xev=(Fev - mu) / sd)
     tr_d, ev_d, role = split_domains(dataset, split)
     if dataset == "uci":
         df = load_uci(); F = feature_columns()
@@ -393,7 +404,7 @@ def run(args, return_model=False):
 
 def parse(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--dataset", choices=["uci", "smell", "twin", "twinreg"], required=True)
+    p.add_argument("--dataset", choices=["uci", "smell", "twin", "twinreg", "smellfeat", "smellgru"], required=True)
     p.add_argument("--split", required=True)
     p.add_argument("--opt", required=True)
     p.add_argument("--hp", default="{}")

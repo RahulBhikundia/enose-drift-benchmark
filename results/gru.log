@@ -1,0 +1,16 @@
+adamw {'extra': [], 'hp': {'lr': 0.003, 'weight_decay': 0.01}, 'method': 'erm', 'mhp': {}, 'opt': 'adamw', 'epochs': 81, 'val_score_mean': 0.8309545882311994}
+coral {'extra': ['--sampler', 'mixed'], 'hp': {'lr': 0.003}, 'method': 'coral', 'mhp': {'lam': 3.0}, 'opt': 'adamw', 'epochs': 70, 'val_score_mean': 0.8419737316492214}
+final adamw loso1 done
+final adamw loso2 done
+final adamw loso3 done
+final adamw loso4 done
+final adamw loso5 done
+final adamw loso6 done
+final coral loso1 done
+final coral loso2 done
+final coral loso3 done
+final coral loso4 done
+final coral loso5 done
+final coral loso6 done
+DONE smellgru
+ALLDONE  
