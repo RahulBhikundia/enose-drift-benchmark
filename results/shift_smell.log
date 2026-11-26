@@ -1,0 +1,43 @@
+smell loso1 s0 done
+smell loso1 s1 done
+smell loso1 s2 done
+smell loso2 s0 done
+smell loso2 s1 done
+smell loso2 s2 done
+smell loso3 s0 done
+smell loso3 s1 done
+smell loso3 s2 done
+smell loso4 s0 done
+smell loso4 s1 done
+smell loso4 s2 done
+smell loso5 s0 done
+smell loso5 s1 done
+smell loso5 s2 done
+smell loso6 s0 done
+smell loso6 s1 done
+smell loso6 s2 done
+Traceback (most recent call last):
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\shift_diagnosis.py", line 111, in <module>
+    main()
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\scripts\shift_diagnosis.py", line 98, in main
+    df = pd.read_csv(OUT)
+         ^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 626, in _read
+    return parser.read(nrows)
+           ^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\.venv\Lib\site-packages\pandas\io\parsers\readers.py", line 1923, in read
+    ) = self._engine.read(  # type: ignore[attr-defined]
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\IIT Jodhpur\ML CSL7620\Project ML\.venv\Lib\site-packages\pandas\io\parsers\c_parser_wrapper.py", line 234, in read
+    chunks = self._reader.read_low_memory(nrows)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "parsers.pyx", line 838, in pandas._libs.parsers.TextReader.read_low_memory
+  File "parsers.pyx", line 905, in pandas._libs.parsers.TextReader._read_rows
+  File "parsers.pyx", line 874, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "parsers.pyx", line 891, in pandas._libs.parsers.TextReader._check_tokenize_status
+  File "parsers.pyx", line 2061, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 9 fields in line 71, saw 11
+
