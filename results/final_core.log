@@ -1,0 +1,20 @@
+450 jobs
+[1/450] uci main sgd s0 macroF1=0.5685101000916736
+[26/450] uci main gi s0 macroF1=0.5605856367466884
+[51/450] uci roll2 recency s0 macroF1=0.8979003562725575
+[76/450] uci roll3 msam s0 macroF1=0.9238041861269677
+[101/450] uci roll4 sam s0 macroF1=0.9932969917221885
+[126/450] uci roll5 adamw s0 macroF1=0.7270528068199513
+[151/450] uci roll6 sgd s0 macroF1=0.8056979091548757
+[176/450] uci roll6 gi s0 macroF1=0.897008182852394
+[201/450] uci roll7 recency s0 macroF1=0.9161928336556316
+[226/450] uci roll8 msam s0 macroF1=0.7524903327032998
+[251/450] uci roll9 sam s0 macroF1=0.7324018306057228
+[276/450] smell loso1 adamw s0 macroF1=0.5982840402723896
+[301/450] smell loso2 sgd s0 macroF1=0.9018598112202231
+[326/450] smell loso2 gi s0 macroF1=0.8666789978180139
+[351/450] smell loso3 recency s0 macroF1=0.8367187956724031
+[376/450] smell loso4 msam s0 macroF1=0.9380949390649858
+[401/450] smell loso5 sam s0 macroF1=0.7845562561765275
+[426/450] smell loso6 adamw s0 macroF1=0.7932404197982307
+DONE final

@@ -1,0 +1,11 @@
+225 jobs
+[1/225] uci main samsam_extrap s0 macroF1=0.6589229706650996
+[26/225] uci roll2 samsam_random s0 macroF1=0.7566271985862543
+[51/225] uci roll4 samsam_disagree s0 macroF1=0.9838405936804107
+[76/225] uci roll6 samsam_extrap s0 macroF1=0.7800080369817876
+[101/225] uci roll7 samsam_random s0 macroF1=0.9162428269947771
+[126/225] uci roll9 samsam_disagree s0 macroF1=0.6994935736919432
+[151/225] smell loso2 samsam_extrap s0 macroF1=0.8320275437212483
+[176/225] smell loso3 samsam_random s0 macroF1=0.9209257368628486
+[201/225] smell loso5 samsam_disagree s0 macroF1=0.8037615991494408
+DONE final
