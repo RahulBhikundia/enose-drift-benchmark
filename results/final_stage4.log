@@ -1,0 +1,12 @@
+225 jobs
+[1/225] uci main ccpca s0 macroF1=0.5493835526576617
+[26/225] uci roll2 swa s0 macroF1=0.8359075082679324
+[51/225] uci roll4 driftaug s0 macroF1=0.9875904175945618
+[76/225] uci roll6 ccpca s0 macroF1=0.8641956549284656
+[101/225] uci roll7 swa s0 macroF1=0.9165665293944949
+[126/225] uci roll9 driftaug s0 macroF1=0.6178182212260197
+[151/225] smell loso2 ccpca s0 macroF1=0.8351808147809728
+[176/225] smell loso3 swa s0 macroF1=0.8185254969642268
+[201/225] smell loso5 driftaug s0 macroF1=0.7318765769515551
+DONE final
+ALLDONE 

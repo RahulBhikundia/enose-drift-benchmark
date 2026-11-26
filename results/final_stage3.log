@@ -1,0 +1,21 @@
+450 jobs
+[1/450] uci main domnorm s0 macroF1=0.5812139856105937
+[26/450] uci main groupdro s0 macroF1=0.5705865327716838
+[51/450] uci roll2 coral s0 macroF1=0.7619155232036252
+[76/450] uci roll3 disam s0 macroF1=0.8055975250172599
+[101/450] uci roll4 sagm s0 macroF1=0.9932969917221885
+[126/450] uci roll5 erm_mixed s0 macroF1=0.6473083754982922
+[151/450] uci roll6 domnorm s0 macroF1=0.8677809998436571
+[176/450] uci roll6 groupdro s0 macroF1=0.6551286599867341
+[201/450] uci roll7 coral s0 macroF1=0.742196333641934
+[226/450] uci roll8 disam s0 macroF1=0.9191894415423826
+[251/450] uci roll9 sagm s0 macroF1=0.7324099489599082
+[276/450] smell loso1 erm_mixed s0 macroF1=0.5813351661324873
+[301/450] smell loso2 domnorm s0 macroF1=0.9292719338633026
+[326/450] smell loso2 groupdro s0 macroF1=0.8873949677543435
+[351/450] smell loso3 coral s0 macroF1=0.9160415093573662
+[376/450] smell loso4 disam s0 macroF1=0.950040472812959
+[401/450] smell loso5 sagm s0 macroF1=0.8064326888333168
+[426/450] smell loso6 erm_mixed s0 macroF1=0.8152762021811761
+DONE final
+ALLDONE 

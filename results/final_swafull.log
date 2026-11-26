@@ -1,0 +1,6 @@
+75 jobs
+[1/75] uci main swa_full s0 macroF1=0.5697774382968549
+[26/75] uci roll6 swa_full s0 macroF1=0.7852839536809156
+[51/75] smell loso2 swa_full s0 macroF1=0.9122855814548413
+DONE final
+ALLDONE 
