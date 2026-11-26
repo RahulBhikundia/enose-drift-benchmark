@@ -1,0 +1,74 @@
+{
+  "uci": {
+    "swa_full": {
+      "opt": "adamw",
+      "method": "swa",
+      "hp": {
+        "lr": 0.0003
+      },
+      "mhp": {
+        "swa_start": 3
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 60,
+      "val_f1_mean": 0.8906156854535164,
+      "val_f1_sd": 0.0018125104392746553,
+      "n_configs": 12
+    }
+  },
+  "smell": {
+    "swa_full": {
+      "opt": "adamw",
+      "method": "swa",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "swa_start": 50
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 100,
+      "val_f1_mean": 0.7785406552002826,
+      "val_f1_sd": 0.013237718505859466,
+      "n_configs": 12
+    }
+  },
+  "twin": {
+    "swa_full": {
+      "opt": "adamw",
+      "method": "swa",
+      "hp": {
+        "lr": 0.003
+      },
+      "mhp": {
+        "swa_start": 5
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 100,
+      "val_f1_mean": 0.8837666075446616,
+      "val_f1_sd": 0.04725850600596213,
+      "n_configs": 12
+    }
+  },
+  "twinreg": {
+    "swa_full": {
+      "opt": "adamw",
+      "method": "swa",
+      "hp": {
+        "lr": 0.0003
+      },
+      "mhp": {
+        "swa_start": 5
+      },
+      "sampler": "domain",
+      "norm": "train",
+      "epochs": 100,
+      "val_f1_mean": 0.4457713236279572,
+      "val_f1_sd": 0.07429578143604376,
+      "n_configs": 12
+    }
+  }
+}

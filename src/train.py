@@ -25,6 +25,7 @@ import torch
 from sklearn.metrics import balanced_accuracy_score, f1_score
 
 from src.data_smellnet import load_sessions, make_windows, substance_index
+from src.data_twin import feature_columns as twin_columns, features as twin_features
 from src.data_uci import feature_columns, load_uci
 from src.models import build_model
 from src.optim import SAM, SAMSAM, build_optimizer
@@ -44,6 +45,12 @@ def split_domains(dataset, split):
         if split == "main": return [1, 2, 3, 4, 5], [6, 7, 8, 9, 10], "test"
         if split.startswith("roll"):
             k = int(split[4:]); return list(range(1, k + 1)), [k + 1], "test"
+    elif dataset in ("twin", "twinreg"):
+        # Twin units have no temporal order (measured on interleaved days). Tuning: train units 1-3,
+        # validate on unit 4 (unit 5 unused). Test: leave one unit out.
+        if split == "tune": return [1, 2, 3], [4], "val"
+        if split.startswith("louo"):
+            h = int(split[4:]); return [u for u in range(1, 6) if u != h], [h], "test"
     else:
         if split == "tune": return [1, 2, 3, 4], [5], "val"
         if split == "tune2": return [1, 2, 3], [4], "val"       # 2nd (earlier) forward fold, selection study
@@ -88,7 +95,7 @@ def load_data(dataset, split, norm="train", norm_k=1):
     if norm == "domain":
         D["Xtr"] = domain_standardize(D["Xtr"], D["dtr"]); D["Xev"] = domain_standardize(D["Xev"], D["dev"])
     if norm == "ccpca":
-        P = ccpca_directions(D["Xtr"], D["ytr"], D["dtr"], norm_k)
+        P = ccpca_directions(D["Xtr"], D.get("gtr", D["ytr"]), D["dtr"], norm_k)   # twinreg: classes = gases
         D["Xtr"] = project_out(D["Xtr"], P); D["Xev"] = project_out(D["Xev"], P)
     return D
 
@@ -103,6 +110,22 @@ def _load_data(dataset, split):
         return dict(Xtr=Xtr, ytr=tr.label.to_numpy(), dtr=tr.batch.to_numpy(),
                     Xev=Xev, yev=ev.label.to_numpy(), dev=ev.batch.to_numpy(),
                     train_domains=tr_d, eval_domains=ev_d, role=role, n_cls=6)
+    if dataset in ("twin", "twinreg"):
+        df = twin_features(); F = twin_columns(df)
+        tr = df[df.unit.isin(tr_d)]; ev = df[df.unit.isin(ev_d)]
+        mu, sd = tr[F].mean().to_numpy(), tr[F].std().to_numpy() + 1e-8      # train-only scaler
+        Xtr = (tr[F].to_numpy() - mu) / sd; Xev = (ev[F].to_numpy() - mu) / sd
+        D = dict(dtr=tr.unit.to_numpy(), dev=ev.unit.to_numpy(), train_domains=tr_d, eval_domains=ev_d, role=role,
+                 gtr=tr.gas.to_numpy(), gev=ev.gas.to_numpy())
+        if dataset == "twin":                     # classify the gas (4 classes)
+            return dict(D, Xtr=Xtr, Xev=Xev, ytr=tr.gas.to_numpy(), yev=ev.gas.to_numpy(), n_cls=4)
+        # twinreg: regress log-concentration of a KNOWN gas (gas one-hot appended to the inputs);
+        # target standardized with training statistics; RMSE/MAE are reported in log-concentration units
+        oh = np.eye(4)
+        lt, le = np.log(tr.conc.to_numpy(float)), np.log(ev.conc.to_numpy(float))
+        y_mu, y_sd = lt.mean(), lt.std()
+        return dict(D, Xtr=np.hstack([Xtr, oh[tr.gas]]), Xev=np.hstack([Xev, oh[ev.gas]]),
+                    ytr=(lt - y_mu) / y_sd, yev=(le - y_mu) / y_sd, n_cls=1, task="reg", y_mu=y_mu, y_sd=y_sd)
     S = load_sessions(); cls = substance_index(S)
 
     def build(sessions):
@@ -141,33 +164,47 @@ def mixed_batches(dom, bs, rng):
 
 
 # ---------------------------------------------------------------- eval
+def _decide(o):
+    """Class index for classifiers, the scalar output for regressors (output width 1)."""
+    return o[:, 0] if o.shape[1] == 1 else o.argmax(1)
+
+
 @torch.no_grad()
 def predict(model, X, t=None, bs=4096):
     model.eval()
     if t is None:
-        out = torch.cat([model(X[i:i + bs]).argmax(1) for i in range(0, len(X), bs)])
+        out = torch.cat([_decide(model(X[i:i + bs])) for i in range(0, len(X), bs)])
     else:
-        out = torch.cat([model(X[i:i + bs], t[i:i + bs]).argmax(1) for i in range(0, len(X), bs)])
+        out = torch.cat([_decide(model(X[i:i + bs], t[i:i + bs])) for i in range(0, len(X), bs)])
     model.train()
     return out.cpu().numpy()
 
 
-def metrics(y, p, n_cls):
+def metrics(y, p, n_cls, y_sd=1.0):
+    """Classification: accuracy / macro-F1 / balanced acc; score = macro-F1 over present classes.
+    Regression (n_cls == 1, standardized targets): R2, and RMSE / MAE in original (log) units; score = R2."""
+    if n_cls == 1:
+        err = p - y
+        r2 = 1.0 - float((err ** 2).sum()) / max(float(((y - y.mean()) ** 2).sum()), 1e-12)
+        return dict(n=int(len(y)), r2=r2, rmse=float(np.sqrt((err ** 2).mean())) * y_sd,
+                    mae=float(np.abs(err).mean()) * y_sd, score=r2)
     present = np.unique(y)
+    f1p = float(f1_score(y, p, labels=present, average="macro", zero_division=0))
     return dict(n=int(len(y)), acc=float((y == p).mean()),
-                macro_f1_present=float(f1_score(y, p, labels=present, average="macro", zero_division=0)),
+                macro_f1_present=f1p,
                 macro_f1_all=float(f1_score(y, p, labels=np.arange(n_cls), average="macro", zero_division=0)),
-                bal_acc=float(balanced_accuracy_score(y, p)))
+                bal_acc=float(balanced_accuracy_score(y, p)), score=f1p)
 
 
 def eval_all(model, D, Xev, n_cls, tev=None):
     p = predict(model, Xev, tev)
-    res = {"pooled": metrics(D["yev"], p, n_cls)}
+    ysd = D.get("y_sd", 1.0)
+    res = {"pooled": metrics(D["yev"], p, n_cls, ysd)}
     for k in D["eval_domains"]:
         m = D["dev"] == k
-        res[str(k)] = metrics(D["yev"][m], p[m], n_cls)
-    res["mean_over_domains"] = {key: float(np.mean([res[str(k)][key] for k in D["eval_domains"]]))
-                                for key in ("acc", "macro_f1_present", "bal_acc")}
+        res[str(k)] = metrics(D["yev"][m], p[m], n_cls, ysd)
+    keys = ("r2", "rmse", "mae", "score") if n_cls == 1 else ("acc", "macro_f1_present", "bal_acc", "score")
+    res["mean_over_domains"] = {key: float(np.mean([res[str(k)][key] for k in D["eval_domains"]])) for key in keys}
     return res, p
 
 
@@ -177,7 +214,8 @@ def run(args, return_model=False):
     rng = np.random.default_rng(args.seed)
     D = load_data(args.dataset, args.split, args.norm, args.norm_k)
     Xtr = torch.tensor(D["Xtr"], dtype=torch.float32, device=DEV)
-    ytr = torch.tensor(D["ytr"], dtype=torch.long, device=DEV)
+    reg = D.get("task") == "reg"
+    ytr = torch.tensor(D["ytr"], dtype=torch.float32 if reg else torch.long, device=DEV)
     if args.method in ("coral", "groupdro") or args.opt == "disam":
         assert args.sampler == "mixed", f"{args.method}/{args.opt} needs multi-domain batches: use --sampler mixed"
     Xev = torch.tensor(D["Xev"], dtype=torch.float32, device=DEV)
@@ -188,7 +226,11 @@ def run(args, return_model=False):
     hp = json.loads(args.hp)
     opt = build_optimizer(args.opt, model.parameters(), hp, n_domains=len(dom_ids),
                           domain_order=list(range(len(dom_ids))), seed=args.seed)
-    lossf = torch.nn.CrossEntropyLoss()
+    if reg:
+        _mse = torch.nn.MSELoss()
+        lossf = lambda o, y: _mse(o.squeeze(-1), y)           # noqa: E731
+    else:
+        lossf = torch.nn.CrossEntropyLoss()
     # forward+backward passes per step (GI: 3 forwards, backward through all three)
     passes = (2 if isinstance(opt, SAM) else 1) * (3 if args.method == "gi" else 1)
     # Time coordinate for GI: domain value scaled so that training domains span [0, 1]
@@ -198,7 +240,8 @@ def run(args, return_model=False):
     K = len(dom_ids)
     dtr_idx = torch.tensor([dom_ids[v] for v in D["dtr"]], dtype=torch.long, device=DEV)  # per-sample 0..K-1
     q_dro = torch.ones(K, device=DEV) / K                          # GroupDRO domain weights
-    lossf_none = torch.nn.CrossEntropyLoss(reduction="none")
+    lossf_none = ((lambda o, y: (o.squeeze(-1) - y) ** 2) if reg  # noqa: E731
+                  else torch.nn.CrossEntropyLoss(reduction="none"))
 
     def fwd(x, t=None):
         return model(x, t) if time_input else model(x)
@@ -237,9 +280,12 @@ def run(args, return_model=False):
             return lossf(fwd(xb), yb)
         if args.method == "driftaug":                 # random gain/offset mimicking sensor drift
             a, s_ = mhp.get("gain", 0.2), mhp.get("offset", 0.2)
-            if xb.ndim == 2:                          # UCI: one gain per sensor (8 features each)
-                g = 1 + a * (2 * torch.rand(len(xb), 16, 1, device=DEV) - 1)
-                xa = (xb.view(len(xb), 16, 8) * g).view(len(xb), -1) + s_ * torch.randn_like(xb)
+            if xb.ndim == 2:                          # UCI (16 sensors) / Twin (8): one gain per sensor
+                S = 16 if args.dataset == "uci" else 8    # (8 features each); Twin's gas one-hot is untouched
+                xs = xb[:, :S * 8]
+                g = 1 + a * (2 * torch.rand(len(xb), S, 1, device=DEV) - 1)
+                xa = (xs.reshape(len(xb), S, 8) * g).reshape(len(xb), -1) + s_ * torch.randn_like(xs)
+                xa = torch.cat([xa, xb[:, S * 8:]], 1)
             else:                                     # SmellNet: one gain and offset per channel per window
                 C = xb.shape[-1]
                 g = 1 + a * (2 * torch.rand(len(xb), 1, C, device=DEV) - 1)
@@ -303,7 +349,7 @@ def run(args, return_model=False):
             getattr(opt, "move_back", lambda: None)()
             r, _ = eval_all(eval_model(), D, Xev, D["n_cls"], tev)
             getattr(opt, "move_up", lambda: None)()
-            score = r["mean_over_domains"]["macro_f1_present"]
+            score = r["mean_over_domains"]["score"]
             curve.append(dict(epoch=ep, train_loss=float(np.mean(ep_loss)), val_macro_f1=score))
             if score > best["score"]:
                 best = dict(score=score, epoch=ep)
@@ -330,7 +376,9 @@ def run(args, return_model=False):
         n = min(len(Xtr), 4096)
         sel_c = np.random.default_rng(1).choice(len(Xtr), n, replace=False)
         ttr = (torch.tensor([tscale(v) for v in D["dtr"][sel_c]], dtype=torch.float32, device=DEV) if time_input else None)
-        out["train_acc"] = float((predict(model, Xtr[sel_c], ttr) == D["ytr"][sel_c]).mean())
+        ptr = predict(model, Xtr[sel_c], ttr)
+        out["train_acc"] = (metrics(D["ytr"][sel_c], ptr, 1)["r2"] if reg      # regression: train R2
+                            else float((ptr == D["ytr"][sel_c]).mean()))
         out["collapsed"] = bool(out["train_acc"] < 0.5)
         if D["role"] == "test":
             out["test_pred"] = pred.tolist(); out["test_true"] = D["yev"].tolist(); out["test_dom"] = D["dev"].tolist()
@@ -345,7 +393,7 @@ def run(args, return_model=False):
 
 def parse(argv=None):
     p = argparse.ArgumentParser()
-    p.add_argument("--dataset", choices=["uci", "smell"], required=True)
+    p.add_argument("--dataset", choices=["uci", "smell", "twin", "twinreg"], required=True)
     p.add_argument("--split", required=True)
     p.add_argument("--opt", required=True)
     p.add_argument("--hp", default="{}")

@@ -1,0 +1,7 @@
+100 jobs
+[1/100] twin louo1 swa_full s0 macroF1=0.863802184723396
+[26/100] twin louo3 swa_full s5 macroF1=0.9937490232848882
+[51/100] twinreg louo1 swa_full s0 macroF1=None
+[76/100] twinreg louo3 swa_full s5 macroF1=None
+DONE final
+ALLDONE 

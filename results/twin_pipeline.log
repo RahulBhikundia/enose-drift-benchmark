@@ -1,0 +1,196 @@
+936 jobs
+[1/936] twin sgd {'lr': 0.003, 'weight_decay': 0.0} {} s0 best_val=0.9874921826141339
+[26/936] twin sgd {'lr': 0.03, 'weight_decay': 0.001} {} s1 best_val=0.9749373433583959
+[51/936] twin adamw {'lr': 0.0003, 'weight_decay': 0.01} {} s2 best_val=0.9629899883877852
+[76/936] twin sam {'lr': 0.01, 'rho': 0.05} {} s0 best_val=0.9874921826141339
+[101/936] twin sam {'lr': 0.1, 'rho': 0.05} {} s1 best_val=0.9627892432770482
+[126/936] twin msam {'lr': 0.03, 'rho': 0.3} {} s2 best_val=0.9874921826141339
+[151/936] twin sagm {'lr': 0.01, 'rho': 0.1, 'alpha': 0.001} {} s0 best_val=0.9874921826141339
+[176/936] twin sagm {'lr': 0.1, 'rho': 0.1, 'alpha': 0.001} {} s1 best_val=1.0
+[201/936] twin disam {'lr': 0.03, 'rho': 0.1, 'lam': 0.1} {} s2 best_val=0.9874921826141339
+[226/936] twin coral {'lr': 0.0003} {'lam': 3.0} s0 best_val=0.9874921826141339
+[251/936] twin coral {'lr': 0.003} {'lam': 3.0} s1 best_val=0.9494949494949495
+[276/936] twin groupdro {'lr': 0.001} {'eta': 1.0} s2 best_val=0.9752747252747253
+[301/936] twin erm_mixed {'lr': 0.0003, 'weight_decay': 0.01} {} s0 best_val=0.9494949494949495
+[326/936] twin domnorm {'lr': 0.0001, 'weight_decay': 0.0} {} s1 best_val=1.0
+[351/936] twin domnorm {'lr': 0.001, 'weight_decay': 0.1} {} s2 best_val=1.0
+[376/936] twin ccpca {'lr': 0.001} {'k': 2} s0 best_val=0.8992248062015504
+[401/936] twin driftaug {'lr': 0.0003} {'gain': 0.2, 'offset': 0.3} s1 best_val=0.9622878692646134
+[426/936] twin driftaug {'lr': 0.003} {'gain': 0.2, 'offset': 0.3} s2 best_val=1.0
+[451/936] twin swa {'lr': 0.001} {'swa_start': 30} s0 best_val=0.937054893804752
+[476/936] twinreg sgd {'lr': 0.003, 'weight_decay': 0.001} {} s1 best_val=0.5345903144490456
+[501/936] twinreg sgd {'lr': 0.1, 'weight_decay': 0.0001} {} s2 best_val=0.507005833275955
+[526/936] twinreg adamw {'lr': 0.001, 'weight_decay': 0.01} {} s0 best_val=0.601813652076012
+[551/936] twinreg sam {'lr': 0.01, 'rho': 0.2} {} s1 best_val=0.666858719447699
+[576/936] twinreg sam {'lr': 0.1, 'rho': 0.2} {} s2 best_val=0.21036603681460697
+[601/936] twinreg msam {'lr': 0.1, 'rho': 0.1} {} s0 best_val=0.06173057753966338
+[626/936] twinreg sagm {'lr': 0.03, 'rho': 0.02, 'alpha': 0.001} {} s1 best_val=0.6324117397122349
+[651/936] twinreg disam {'lr': 0.01, 'rho': 0.02, 'lam': 0.1} {} s2 best_val=0.563914285622886
+[676/936] twinreg disam {'lr': 0.1, 'rho': 0.05, 'lam': 0.1} {} s0 best_val=0.3264728421921954
+[701/936] twinreg coral {'lr': 0.001} {'lam': 0.3} s1 best_val=0.6299079302995638
+[726/936] twinreg groupdro {'lr': 0.0003} {'eta': 0.01} s2 best_val=0.5661854799732943
+[751/936] twinreg groupdro {'lr': 0.003} {'eta': 0.1} s0 best_val=0.6832579201745451
+[776/936] twinreg erm_mixed {'lr': 0.001, 'weight_decay': 0.0} {} s1 best_val=0.6278424647014419
+[801/936] twinreg domnorm {'lr': 0.0001, 'weight_decay': 0.1} {} s2 best_val=0.8886416263125372
+[826/936] twinreg domnorm {'lr': 0.003, 'weight_decay': 0.1} {} s0 best_val=0.8726769184370549
+[851/936] twinreg ccpca {'lr': 0.001} {'k': 4} s1 best_val=0.489806818435482
+[876/936] twinreg driftaug {'lr': 0.0003} {'gain': 0.5, 'offset': 1.0} s2 best_val=0.546473627631014
+[901/936] twinreg swa {'lr': 0.0003} {'swa_start': 5} s0 best_val=0.5841797777512928
+[926/936] twinreg swa {'lr': 0.003} {'swa_start': 5} s1 best_val=0.6720216823427461
+== twin
+  sgd              val 0.987 +- 0.018  epochs  15  hp {'lr': 0.1, 'weight_decay': 0.001} 
+  adamw            val 0.979 +- 0.012  epochs  22  hp {'lr': 0.003, 'weight_decay': 0.1} 
+  sam              val 0.996 +- 0.006  epochs  11  hp {'lr': 0.03, 'rho': 0.2} 
+  msam             val 0.996 +- 0.006  epochs  21  hp {'lr': 0.1, 'rho': 1.0} 
+  sagm             val 0.992 +- 0.006  epochs   8  hp {'alpha': 0.001, 'lr': 0.03, 'rho': 0.1} 
+  disam            val 0.996 +- 0.006  epochs   6  hp {'lam': 0.1, 'lr': 0.1, 'rho': 0.2} 
+  coral            val 0.975 +- 0.018  epochs   9  hp {'lr': 0.001} {'lam': 3.0}
+  groupdro         val 0.979 +- 0.016  epochs   5  hp {'lr': 0.003} {'eta': 1.0}
+  erm_mixed        val 0.979 +- 0.016  epochs  10  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  domnorm          val 1.000 +- 0.000  epochs  13  hp {'lr': 0.0003, 'weight_decay': 0.01} 
+  ccpca            val 0.906 +- 0.054  epochs   5  hp {'lr': 0.003} {'k': 1}
+  driftaug         val 1.000 +- 0.000  epochs  40  hp {'lr': 0.003} {'gain': 0.3, 'offset': 0.5}
+  swa              val 0.975 +- 0.000  epochs  12  hp {'lr': 0.003} {'swa_start': 5}
+== twinreg
+  sgd              val 0.622 +- 0.004  epochs   8  hp {'lr': 0.03, 'weight_decay': 0.0} 
+  adamw            val 0.643 +- 0.034  epochs   5  hp {'lr': 0.003, 'weight_decay': 0.1} 
+  sam              val 0.701 +- 0.012  epochs  34  hp {'lr': 0.03, 'rho': 0.2} 
+  msam             val 0.649 +- 0.041  epochs   7  hp {'lr': 0.03, 'rho': 0.3} 
+  sagm             val 0.696 +- 0.024  epochs  18  hp {'alpha': 0.001, 'lr': 0.03, 'rho': 0.2} 
+  disam            val 0.706 +- 0.018  epochs  18  hp {'lam': 0.1, 'lr': 0.03, 'rho': 0.2} 
+  coral            val 0.662 +- 0.024  epochs   5  hp {'lr': 0.003} {'lam': 1.0}
+  groupdro         val 0.642 +- 0.030  epochs   5  hp {'lr': 0.003} {'eta': 0.1}
+  erm_mixed        val 0.654 +- 0.035  epochs   5  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  domnorm          val 0.888 +- 0.006  epochs   7  hp {'lr': 0.001, 'weight_decay': 0.01} 
+  ccpca            val 0.667 +- 0.005  epochs   5  hp {'lr': 0.003} {'k': 1}
+  driftaug         val 0.615 +- 0.022  epochs  25  hp {'lr': 0.003} {'gain': 0.3, 'offset': 0.5}
+  swa              val 0.636 +- 0.032  epochs   5  hp {'lr': 0.003} {'swa_start': 15}
+DONE twin tune
+144 jobs
+[1/144] twin samsam_disagree {'lr': 0.01, 'rho': 1.0, 'beta': -1.0} {} s0 best_val=0.9874921826141339
+[26/144] twin samsam_disagree {'lr': 0.1, 'rho': 1.0, 'beta': -1.0} {} s1 best_val=1.0
+[51/144] twin samsam_random {'lr': 0.03, 'rho': 1.0, 'beta': -1.0} {} s2 best_val=0.9874921826141339
+[76/144] twinreg samsam_disagree {'lr': 0.01, 'rho': 0.3, 'beta': -0.5} {} s0 best_val=0.6810661347038769
+[101/144] twinreg samsam_disagree {'lr': 0.1, 'rho': 0.3, 'beta': -0.5} {} s1 best_val=0.2140247925437404
+[126/144] twinreg samsam_random {'lr': 0.03, 'rho': 0.3, 'beta': -0.5} {} s2 best_val=0.633122842897239
+== twin
+  sgd              val 0.987 +- 0.018  epochs  15  hp {'lr': 0.1, 'weight_decay': 0.001} 
+  adamw            val 0.979 +- 0.012  epochs  22  hp {'lr': 0.003, 'weight_decay': 0.1} 
+  sam              val 0.996 +- 0.006  epochs  11  hp {'lr': 0.03, 'rho': 0.2} 
+  msam             val 0.996 +- 0.006  epochs  21  hp {'lr': 0.1, 'rho': 1.0} 
+  sagm             val 0.992 +- 0.006  epochs   8  hp {'alpha': 0.001, 'lr': 0.03, 'rho': 0.1} 
+  disam            val 0.996 +- 0.006  epochs   6  hp {'lam': 0.1, 'lr': 0.1, 'rho': 0.2} 
+  coral            val 0.975 +- 0.018  epochs   9  hp {'lr': 0.001} {'lam': 3.0}
+  groupdro         val 0.979 +- 0.016  epochs   5  hp {'lr': 0.003} {'eta': 1.0}
+  erm_mixed        val 0.979 +- 0.016  epochs  10  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  domnorm          val 1.000 +- 0.000  epochs  13  hp {'lr': 0.0003, 'weight_decay': 0.01} 
+  ccpca            val 0.906 +- 0.054  epochs   5  hp {'lr': 0.003} {'k': 1}
+  driftaug         val 1.000 +- 0.000  epochs  40  hp {'lr': 0.003} {'gain': 0.3, 'offset': 0.5}
+  swa              val 0.975 +- 0.000  epochs  12  hp {'lr': 0.003} {'swa_start': 5}
+  samsam_disagree  val 1.000 +- 0.000  epochs  28  hp {'beta': -0.5, 'lr': 0.1, 'rho': 1.0} 
+  samsam_random    val 1.000 +- 0.000  epochs  40  hp {'beta': 1.0, 'lr': 0.1, 'rho': 1.0} 
+== twinreg
+  sgd              val 0.622 +- 0.004  epochs   8  hp {'lr': 0.03, 'weight_decay': 0.0} 
+  adamw            val 0.643 +- 0.034  epochs   5  hp {'lr': 0.003, 'weight_decay': 0.1} 
+  sam              val 0.701 +- 0.012  epochs  34  hp {'lr': 0.03, 'rho': 0.2} 
+  msam             val 0.649 +- 0.041  epochs   7  hp {'lr': 0.03, 'rho': 0.3} 
+  sagm             val 0.696 +- 0.024  epochs  18  hp {'alpha': 0.001, 'lr': 0.03, 'rho': 0.2} 
+  disam            val 0.706 +- 0.018  epochs  18  hp {'lam': 0.1, 'lr': 0.03, 'rho': 0.2} 
+  coral            val 0.662 +- 0.024  epochs   5  hp {'lr': 0.003} {'lam': 1.0}
+  groupdro         val 0.642 +- 0.030  epochs   5  hp {'lr': 0.003} {'eta': 0.1}
+  erm_mixed        val 0.654 +- 0.035  epochs   5  hp {'lr': 0.003, 'weight_decay': 0.01} 
+  domnorm          val 0.888 +- 0.006  epochs   7  hp {'lr': 0.001, 'weight_decay': 0.01} 
+  ccpca            val 0.667 +- 0.005  epochs   5  hp {'lr': 0.003} {'k': 1}
+  driftaug         val 0.615 +- 0.022  epochs  25  hp {'lr': 0.003} {'gain': 0.3, 'offset': 0.5}
+  swa              val 0.636 +- 0.032  epochs   5  hp {'lr': 0.003} {'swa_start': 15}
+  samsam_disagree  val 0.680 +- 0.043  epochs   5  hp {'beta': 0.5, 'lr': 0.03, 'rho': 0.3} 
+  samsam_random    val 0.663 +- 0.030  epochs   7  hp {'beta': 0.5, 'lr': 0.03, 'rho': 0.3} 
+DONE twin tune2
+1500 jobs
+[1/1500] twin louo1 sgd s0 macroF1=0.1
+[26/1500] twin louo1 sam s5 macroF1=0.9283815102306459
+[51/1500] twin louo1 disam s0 macroF1=0.7979662996920245
+[76/1500] twin louo1 groupdro s5 macroF1=0.8369218500797448
+[101/1500] twin louo1 ccpca s0 macroF1=0.7001242763017766
+[126/1500] twin louo1 swa s5 macroF1=0.7778972030601307
+[151/1500] twin louo2 sgd s0 macroF1=0.1
+[176/1500] twin louo2 sam s5 macroF1=0.9689716659481914
+[201/1500] twin louo2 disam s0 macroF1=0.9937490232848882
+[226/1500] twin louo2 groupdro s5 macroF1=0.9749726189663153
+[251/1500] twin louo2 ccpca s0 macroF1=0.9937490232848882
+[276/1500] twin louo2 swa s5 macroF1=0.9937490232848882
+[301/1500] twin louo3 sgd s0 macroF1=0.1
+[326/1500] twin louo3 sam s5 macroF1=1.0
+[351/1500] twin louo3 disam s0 macroF1=1.0
+[376/1500] twin louo3 groupdro s5 macroF1=1.0
+[401/1500] twin louo3 ccpca s0 macroF1=0.9937490232848882
+[426/1500] twin louo3 swa s5 macroF1=1.0
+[451/1500] twin louo4 sgd s0 macroF1=0.8666666666666667
+[476/1500] twin louo4 sam s5 macroF1=0.881500987491771
+[501/1500] twin louo4 disam s0 macroF1=0.9622878692646134
+[526/1500] twin louo4 groupdro s5 macroF1=0.9387940572151099
+[551/1500] twin louo4 ccpca s0 macroF1=0.6705128205128206
+[576/1500] twin louo4 swa s5 macroF1=0.9122380539777285
+[601/1500] twin louo5 sgd s0 macroF1=0.6978706929926443
+[626/1500] twin louo5 sam s5 macroF1=0.9246336996336997
+[651/1500] twin louo5 disam s0 macroF1=0.8873691320499831
+[676/1500] twin louo5 groupdro s5 macroF1=0.9250462919373568
+[701/1500] twin louo5 ccpca s0 macroF1=0.9502970606629143
+[726/1500] twin louo5 swa s5 macroF1=0.9250462919373568
+[751/1500] twinreg louo1 sgd s0 macroF1=None
+[776/1500] twinreg louo1 sam s5 macroF1=None
+[801/1500] twinreg louo1 disam s0 macroF1=None
+[826/1500] twinreg louo1 groupdro s5 macroF1=None
+[851/1500] twinreg louo1 ccpca s0 macroF1=None
+[876/1500] twinreg louo1 swa s5 macroF1=None
+[901/1500] twinreg louo2 sgd s0 macroF1=None
+[926/1500] twinreg louo2 sam s5 macroF1=None
+[951/1500] twinreg louo2 disam s0 macroF1=None
+[976/1500] twinreg louo2 groupdro s5 macroF1=None
+[1001/1500] twinreg louo2 ccpca s0 macroF1=None
+[1026/1500] twinreg louo2 swa s5 macroF1=None
+[1051/1500] twinreg louo3 sgd s0 macroF1=None
+[1076/1500] twinreg louo3 sam s5 macroF1=None
+[1101/1500] twinreg louo3 disam s0 macroF1=None
+[1126/1500] twinreg louo3 groupdro s5 macroF1=None
+[1151/1500] twinreg louo3 ccpca s0 macroF1=None
+[1176/1500] twinreg louo3 swa s5 macroF1=None
+[1201/1500] twinreg louo4 sgd s0 macroF1=None
+[1226/1500] twinreg louo4 sam s5 macroF1=None
+[1251/1500] twinreg louo4 disam s0 macroF1=None
+[1276/1500] twinreg louo4 groupdro s5 macroF1=None
+[1301/1500] twinreg louo4 ccpca s0 macroF1=None
+[1326/1500] twinreg louo4 swa s5 macroF1=None
+[1351/1500] twinreg louo5 sgd s0 macroF1=None
+[1376/1500] twinreg louo5 sam s5 macroF1=None
+[1401/1500] twinreg louo5 disam s0 macroF1=None
+[1426/1500] twinreg louo5 groupdro s5 macroF1=None
+[1451/1500] twinreg louo5 ccpca s0 macroF1=None
+[1476/1500] twinreg louo5 swa s5 macroF1=None
+DONE final
+uci main done
+uci roll2 done
+uci roll3 done
+uci roll4 done
+uci roll5 done
+uci roll6 done
+uci roll7 done
+uci roll8 done
+uci roll9 done
+smell loso1 done
+smell loso2 done
+smell loso3 done
+smell loso4 done
+smell loso5 done
+smell loso6 done
+twin louo1 done
+twin louo2 done
+twin louo3 done
+twin louo4 done
+twin louo5 done
+twinreg louo1 done
+twinreg louo2 done
+twinreg louo3 done
+twinreg louo4 done
+twinreg louo5 done
+ALLDONE 

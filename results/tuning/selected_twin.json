@@ -1,0 +1,476 @@
+{
+  "twin": {
+    "sgd": {
+      "hp": {
+        "lr": 0.1,
+        "weight_decay": 0.001
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "sgd",
+      "sampler": "domain",
+      "epochs": 15,
+      "val_score_mean": 0.9874292897548712,
+      "val_score_sd": 0.017777668917323654,
+      "n_configs": 12
+    },
+    "adamw": {
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.1
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 22,
+      "val_score_mean": 0.9793247845386843,
+      "val_score_sd": 0.01155044512760069,
+      "n_configs": 12
+    },
+    "sam": {
+      "hp": {
+        "lr": 0.03,
+        "rho": 0.2
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "sam",
+      "sampler": "domain",
+      "epochs": 11,
+      "val_score_mean": 0.9958307275380447,
+      "val_score_sd": 0.005896241660925967,
+      "n_configs": 12
+    },
+    "msam": {
+      "hp": {
+        "lr": 0.1,
+        "rho": 1.0
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "msam",
+      "sampler": "domain",
+      "epochs": 21,
+      "val_score_mean": 0.9958307275380447,
+      "val_score_sd": 0.005896241660925967,
+      "n_configs": 12
+    },
+    "sagm": {
+      "hp": {
+        "alpha": 0.001,
+        "lr": 0.03,
+        "rho": 0.1
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "sagm",
+      "sampler": "domain",
+      "epochs": 8,
+      "val_score_mean": 0.9916614550760893,
+      "val_score_sd": 0.005896241660925966,
+      "n_configs": 12
+    },
+    "disam": {
+      "hp": {
+        "lam": 0.1,
+        "lr": 0.1,
+        "rho": 0.2
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "disam",
+      "sampler": "mixed",
+      "epochs": 6,
+      "val_score_mean": 0.9958307275380447,
+      "val_score_sd": 0.005896241660925967,
+      "n_configs": 12
+    },
+    "coral": {
+      "hp": {
+        "lr": 0.001
+      },
+      "method": "coral",
+      "mhp": {
+        "lam": 3.0
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "mixed",
+      "epochs": 9,
+      "val_score_mean": 0.9749388196264036,
+      "val_score_sd": 0.017753136190640548,
+      "n_configs": 12
+    },
+    "groupdro": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "groupdro",
+      "mhp": {
+        "eta": 1.0
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "mixed",
+      "epochs": 5,
+      "val_score_mean": 0.9791487983561155,
+      "val_score_sd": 0.015607255394595985,
+      "n_configs": 12
+    },
+    "erm_mixed": {
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.01
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "mixed",
+      "epochs": 10,
+      "val_score_mean": 0.9791480146582843,
+      "val_score_sd": 0.015608093708138746,
+      "n_configs": 12
+    },
+    "domnorm": {
+      "hp": {
+        "lr": 0.0003,
+        "weight_decay": 0.01
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "domain",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 13,
+      "val_score_mean": 1.0,
+      "val_score_sd": 0.0,
+      "n_configs": 12
+    },
+    "ccpca": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "erm",
+      "mhp": {
+        "k": 1
+      },
+      "norm": "ccpca",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 5,
+      "val_score_mean": 0.9060200361947613,
+      "val_score_sd": 0.05391191940803537,
+      "n_configs": 12
+    },
+    "driftaug": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "driftaug",
+      "mhp": {
+        "gain": 0.3,
+        "offset": 0.5
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 40,
+      "val_score_mean": 1.0,
+      "val_score_sd": 0.0,
+      "n_configs": 12
+    },
+    "swa": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "swa",
+      "mhp": {
+        "swa_start": 5
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 12,
+      "val_score_mean": 0.9749921826141339,
+      "val_score_sd": 0.0,
+      "n_configs": 12
+    },
+    "samsam_disagree": {
+      "hp": {
+        "beta": -0.5,
+        "lr": 0.1,
+        "rho": 1.0
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "samsam_disagree",
+      "sampler": "domain",
+      "epochs": 28,
+      "val_score_mean": 1.0,
+      "val_score_sd": 0.0,
+      "n_configs": 12
+    },
+    "samsam_random": {
+      "hp": {
+        "beta": 1.0,
+        "lr": 0.1,
+        "rho": 1.0
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "samsam_random",
+      "sampler": "domain",
+      "epochs": 40,
+      "val_score_mean": 1.0,
+      "val_score_sd": 0.0,
+      "n_configs": 12
+    }
+  },
+  "twinreg": {
+    "sgd": {
+      "hp": {
+        "lr": 0.03,
+        "weight_decay": 0.0
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "sgd",
+      "sampler": "domain",
+      "epochs": 8,
+      "val_score_mean": 0.6219766094634233,
+      "val_score_sd": 0.004044946616198735,
+      "n_configs": 12
+    },
+    "adamw": {
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.1
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 5,
+      "val_score_mean": 0.6429711504681196,
+      "val_score_sd": 0.034395424214975406,
+      "n_configs": 12
+    },
+    "sam": {
+      "hp": {
+        "lr": 0.03,
+        "rho": 0.2
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "sam",
+      "sampler": "domain",
+      "epochs": 34,
+      "val_score_mean": 0.701382901536831,
+      "val_score_sd": 0.012070747913169012,
+      "n_configs": 12
+    },
+    "msam": {
+      "hp": {
+        "lr": 0.03,
+        "rho": 0.3
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "msam",
+      "sampler": "domain",
+      "epochs": 7,
+      "val_score_mean": 0.6492923138871217,
+      "val_score_sd": 0.04099665559965604,
+      "n_configs": 12
+    },
+    "sagm": {
+      "hp": {
+        "alpha": 0.001,
+        "lr": 0.03,
+        "rho": 0.2
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "sagm",
+      "sampler": "domain",
+      "epochs": 18,
+      "val_score_mean": 0.6957052173577652,
+      "val_score_sd": 0.023809627535214074,
+      "n_configs": 12
+    },
+    "disam": {
+      "hp": {
+        "lam": 0.1,
+        "lr": 0.03,
+        "rho": 0.2
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "disam",
+      "sampler": "mixed",
+      "epochs": 18,
+      "val_score_mean": 0.7058251948160144,
+      "val_score_sd": 0.01821531409198812,
+      "n_configs": 12
+    },
+    "coral": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "coral",
+      "mhp": {
+        "lam": 1.0
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "mixed",
+      "epochs": 5,
+      "val_score_mean": 0.661551959014502,
+      "val_score_sd": 0.024006227870690174,
+      "n_configs": 12
+    },
+    "groupdro": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "groupdro",
+      "mhp": {
+        "eta": 0.1
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "mixed",
+      "epochs": 5,
+      "val_score_mean": 0.6419262118147954,
+      "val_score_sd": 0.030067345978422685,
+      "n_configs": 12
+    },
+    "erm_mixed": {
+      "hp": {
+        "lr": 0.003,
+        "weight_decay": 0.01
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "mixed",
+      "epochs": 5,
+      "val_score_mean": 0.6536308191143813,
+      "val_score_sd": 0.034811738416502244,
+      "n_configs": 12
+    },
+    "domnorm": {
+      "hp": {
+        "lr": 0.001,
+        "weight_decay": 0.01
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "domain",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 7,
+      "val_score_mean": 0.8882298216026174,
+      "val_score_sd": 0.005553230843845335,
+      "n_configs": 12
+    },
+    "ccpca": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "erm",
+      "mhp": {
+        "k": 1
+      },
+      "norm": "ccpca",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 5,
+      "val_score_mean": 0.6671423725572092,
+      "val_score_sd": 0.0048553640976148815,
+      "n_configs": 12
+    },
+    "driftaug": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "driftaug",
+      "mhp": {
+        "gain": 0.3,
+        "offset": 0.5
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 25,
+      "val_score_mean": 0.6154015350739679,
+      "val_score_sd": 0.021851596037144726,
+      "n_configs": 12
+    },
+    "swa": {
+      "hp": {
+        "lr": 0.003
+      },
+      "method": "swa",
+      "mhp": {
+        "swa_start": 15
+      },
+      "norm": "train",
+      "opt": "adamw",
+      "sampler": "domain",
+      "epochs": 5,
+      "val_score_mean": 0.6358852473069648,
+      "val_score_sd": 0.03172147073943679,
+      "n_configs": 12
+    },
+    "samsam_disagree": {
+      "hp": {
+        "beta": 0.5,
+        "lr": 0.03,
+        "rho": 0.3
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "samsam_disagree",
+      "sampler": "domain",
+      "epochs": 5,
+      "val_score_mean": 0.6799424352211357,
+      "val_score_sd": 0.043298241728549756,
+      "n_configs": 12
+    },
+    "samsam_random": {
+      "hp": {
+        "beta": 0.5,
+        "lr": 0.03,
+        "rho": 0.3
+      },
+      "method": "erm",
+      "mhp": {},
+      "norm": "train",
+      "opt": "samsam_random",
+      "sampler": "domain",
+      "epochs": 7,
+      "val_score_mean": 0.6630246854797861,
+      "val_score_sd": 0.030096863363043982,
+      "n_configs": 12
+    }
+  }
+}

@@ -59,4 +59,10 @@ class CNN1D(nn.Module):
 
 
 def build_model(dataset: str, time_input: bool = False):
-    return MLP(time_input=time_input) if dataset == "uci" else CNN1D(time_input=time_input)
+    if dataset == "uci":
+        return MLP(time_input=time_input)
+    if dataset == "twin":                     # 64 features -> 4 gases
+        return MLP(d_in=64, n_cls=4, time_input=time_input)
+    if dataset == "twinreg":                  # 64 features + gas one-hot -> log-concentration
+        return MLP(d_in=68, n_cls=1, time_input=time_input)
+    return CNN1D(time_input=time_input)
